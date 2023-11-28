@@ -1,0 +1,43 @@
+# Friendly URL
+RewriteEngine on
+# In rare ocassion, when The original request, and the substitution, are underneath an Alias, see https://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewritebase
+#RewriteBase "/path/to/app/"
+
+# Favicons in subfolder
+RewriteRule ^(android-icon-[0-9x]*\.png|apple-icon.*\.png|browserconfig.xml|favicon\.ico|favicon-[0-9x]*\.png|manifest\.json|ms-icon-[0-9x]*\.png) images/favicon/$1 [L,QSA]
+
+# redirect all requests to /en/assets* and /de/assets* to /assets*
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(de|en|fr|sk|zh)/(api|assets|favicon.ico|fonts|images|scripts|styles)(.*)$ $2$3 [L,QSA]
+
+# redirect all other requests to /en/* and /de/* and /zh/* etc.
+# to index.php and set the language parameter
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(de/|en/|fr/|sk/|zh/)?(.*)$ index.php?language=$1&$2 [L,QSA]
+
+# Hide composer, logs
+# If mod_alias is not enabled, the Apache should fail to show anything in order to always hide the files in the section below
+RedirectMatch 404 /\.git
+# vendor folder is off limits for web access except the seablast library
+RedirectMatch 404 vendor\/(?!seablast\/)
+RedirectMatch 404 composer\.
+RedirectMatch 404 phpunit\.xml
+RedirectMatch 404 \.gitignore
+RedirectMatch 404 \.stylelintignore
+RedirectMatch 404 \/cache\/
+RedirectMatch 404 \/temp\/
+RedirectMatch 404 \/db\/
+RedirectMatch 404 classes\/
+RedirectMatch 404 Test\/
+RedirectMatch 404 \/logs\/
+RedirectMatch 404 conf\/
+RedirectMatch 404 /\.sass-cache
+RedirectMatch 404 /package\.json
+RedirectMatch 404 /package\-lock\.json
+RedirectMatch 404 phpstan\.neon\.dist
+RedirectMatch 404 \.md$
+RedirectMatch 404 \.neon$
+RedirectMatch 404 \.sh$
+RedirectMatch 404 \.yml$
