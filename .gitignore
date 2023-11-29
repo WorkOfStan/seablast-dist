@@ -10,6 +10,7 @@ cache/*
 /.sass-cache/
 /.php_cs.cache
 /.php-cs-fixer.cache
+/\.phpunit\.result\.cache
 
 #disable private local files
 *.local.php
