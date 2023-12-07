@@ -22,6 +22,7 @@ return static function (SeablastConfiguration $SBConfig): void {
                 //'code' => 'code', // OPTIONAL string GET parameter required for routing (otherwise 404)
                 //'tableName' => 'content', // OPTIONAL table where the data are stored
                 //'filterType' => 'article', // OPTIONAL value of type field used for this collection
+                'model' => 'Seablast\Distribution\Models\HomeModel',
             ]
         )
         ->setArrayArrayString(
