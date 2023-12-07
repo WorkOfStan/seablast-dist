@@ -4,6 +4,7 @@
  * SeablastConfiguration structure accepts all values, however only the expected ones are processed.
  * The usage of constants defined in the SeablastConstant class is encouraged for the sake of hinting within IDE.
  */
+
 use Seablast\Seablast\SeablastConfiguration;
 use Seablast\Seablast\SeablastConstant;
 
@@ -17,10 +18,10 @@ return static function (SeablastConfiguration $SBConfig): void {
             '/', // page slug, i.e. URL representation
             [
                 'template' => 'home', // template used by the View component
-//                'id' => 'id', // OPTIONAL number GET parameter required for routing (otherwise 404)
-//                'code' => 'code', // OPTIONAL string GET parameter required for routing (otherwise 404)
-//                'tableName' => 'content', // OPTIONAL table where the data are stored
-//                'filterType' => 'article', // OPTIONAL value of type field used for this collection
+                //'id' => 'id', // OPTIONAL number GET parameter required for routing (otherwise 404)
+                //'code' => 'code', // OPTIONAL string GET parameter required for routing (otherwise 404)
+                //'tableName' => 'content', // OPTIONAL table where the data are stored
+                //'filterType' => 'article', // OPTIONAL value of type field used for this collection
             ]
         )
         ->setArrayArrayString(
@@ -42,7 +43,7 @@ return static function (SeablastConfiguration $SBConfig): void {
                 'id' => 'id', // OPTIONAL number GET parameter required for routing
                 'code' => 'code', // OPTIONAL string GET parameter required for routing
                 'tableName' => 'item', // OPTIONAL table where the data are stored
-//                'filterType' => 'article', // OPTIONAL value of type field used for this collection
+                //'filterType' => 'article', // OPTIONAL value of type field used for this collection
             ]
         )
     ;
