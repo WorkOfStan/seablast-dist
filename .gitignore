@@ -14,7 +14,6 @@ cache/*
 
 #disable private local files
 *.local.php
-/phinx.yml
 *.local.yml
 
 #disable npm & composer-managed libraries
@@ -25,7 +24,6 @@ cache/*
 /package-lock.json
 
 #disable IDE files
-/nbproject/private/
 /nbproject/
 /.idea/
 
