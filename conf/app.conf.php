@@ -14,7 +14,7 @@ return static function (SeablastConfiguration $SBConfig): void {
     ;
     $SBConfig
         ->setArrayArrayString(
-            SeablastConstant::APP_COLLECTION,
+            SeablastConstant::APP_MAPPING,
             '/', // page slug, i.e. URL representation
             [
                 'template' => 'home', // template used by the View component
@@ -26,7 +26,7 @@ return static function (SeablastConfiguration $SBConfig): void {
             ]
         )
         ->setArrayArrayString(
-            SeablastConstant::APP_COLLECTION,
+            SeablastConstant::APP_MAPPING,
             '/article', // page slug, i.e. URL representation
             [
                 'template' => 'article', // template used by the View component
@@ -37,7 +37,7 @@ return static function (SeablastConfiguration $SBConfig): void {
             ]
         )
         ->setArrayArrayString(
-            SeablastConstant::APP_COLLECTION,
+            SeablastConstant::APP_MAPPING,
             '/item', // page slug, i.e. URL representation
             [
                 'template' => 'item', // template used by the View component
