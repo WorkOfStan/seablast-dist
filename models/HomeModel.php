@@ -2,6 +2,7 @@
 
 namespace Seablast\Distribution\Models;
 
+use stdClass;
 //use Tracy\Debugger;
 //use Webmozart\Assert\Assert;
 
@@ -15,10 +16,9 @@ class HomeModel
     }
 
     /**
-     * TODO: change to object as parameters for Latte render
-     * @return array<mixed>
+     * @return stdClass
      */
-    public function getParameters(): array
+    public function knowledge(): stdClass
     {
         return ['num' => rand(), 'title' => 'Home sweet home'];
     }
