@@ -13,7 +13,6 @@ use stdClass;
 
 /**
  * Demo API
- * TODO move to seablast-dist
  */
 class UseMirrorModel implements SeablastModelInterface
 {

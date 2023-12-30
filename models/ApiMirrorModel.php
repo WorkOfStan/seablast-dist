@@ -14,7 +14,6 @@ use Webmozart\Assert\Assert;
 
 /**
  * Demo API
- * TODO move to seablast-dist
  */
 class ApiMirrorModel implements SeablastModelInterface
 {
