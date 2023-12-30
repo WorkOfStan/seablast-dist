@@ -12,3 +12,8 @@ Run [assemble.sh](assemble.sh) to
 Edit these two configuration files; then re-run assemble.sh
 
 Note: the current configuration is in the `conf/phinx.local.php` so that it is automatically NOT commited to git
+
+## Examples
+
+- try /redir to see how it is redirected to /kontakt
+- try /use-mirror to see how API call works

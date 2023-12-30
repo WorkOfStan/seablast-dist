@@ -29,9 +29,9 @@ RedirectMatch 404 /\.git
 #RedirectMatch 404 \.gitignore # TODO check if it is 404 anyway
 # hide these directories
 RedirectMatch 404 \/cache\/
-RedirectMatch 404 \/classes\/
 RedirectMatch 404 \/conf\/
 RedirectMatch 404 \/logs\/
+RedirectMatch 404 \/models\/
 RedirectMatch 404 \/nbproject\/
 RedirectMatch 404 \/temp\/
 RedirectMatch 404 \/Test\/
