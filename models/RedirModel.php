@@ -7,7 +7,7 @@ use stdClass;
 //use Tracy\Debugger;
 //use Webmozart\Assert\Assert;
 
-class HomeModel
+class RedirModel
 {
     use \Nette\SmartObject;
 
@@ -21,7 +21,9 @@ class HomeModel
      */
     public function knowledge(): stdClass
     {
+        $result = new stdClass();
         // typecasting array to stdClass works since PHP4
-        return (object) ['num' => rand(), 'title' => 'Home sweet home'];
+        $result->redirection = (object) ['url' => './kontakt', 'httpCode' => 302];
+        return $result;
     }
 }

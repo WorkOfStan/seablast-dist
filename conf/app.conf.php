@@ -44,7 +44,29 @@ return static function (SeablastConfiguration $SBConfig): void {
                 'id' => 'id', // OPTIONAL number GET parameter required for routing
                 'code' => 'code', // OPTIONAL string GET parameter required for routing
                 'tableName' => 'item', // OPTIONAL table where the data are stored
-                //'filterType' => 'article', // OPTIONAL value of type field used for this collection
+            //'filterType' => 'article', // OPTIONAL value of type field used for this collection
+            ]
+        )
+        ->setArrayArrayString(
+            SeablastConstant::APP_MAPPING,
+            '/api/mirror',
+            [
+                'model' => '\Seablast\Distribution\Models\ApiMirrorModel',
+            ]
+        )
+        ->setArrayArrayString(
+            SeablastConstant::APP_MAPPING,
+            '/use-mirror',
+            [
+                'template' => 'mirror', // template used by the View component
+                'model' => '\Seablast\Distribution\Models\UseMirrorModel',
+            ]
+        )
+        ->setArrayArrayString(
+            SeablastConstant::APP_MAPPING,
+            '/redir', // page slug, i.e. URL representation
+            [
+                'model' => '\Seablast\Distribution\Models\RedirModel',
             ]
         )
     ;
