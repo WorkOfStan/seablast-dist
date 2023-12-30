@@ -5,7 +5,7 @@
     "require": {
         "php": "^7.2|^8.2",
         "robmorgan/phinx": "^0.10.6|^0.12.3",
-        "seablast/seablast": "dev-notest/object"
+        "seablast/seablast": "dev-notest/object-clean"
     },
     "require-dev": {
         "phpunit/phpunit": "^4|^5|^6|^7|^8|^9|^10"
