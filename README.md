@@ -27,4 +27,4 @@ Note: the current configuration is in the `conf/phinx.local.php` so that it is a
 | conf/ | Default configuration for a Seablast app and for PHPStan |
 | log/ | Logs - this is just for development as production-wise, there will be `log` directory in the root of the app |
 | models/ | If not all classes are models, change it to src/models, src/data, src/exceptions... |
-| templates/ | Latte templates to be inherited |
+| templates/ | Latte templates |
