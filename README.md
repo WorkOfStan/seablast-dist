@@ -17,3 +17,14 @@ Note: the current configuration is in the `conf/phinx.local.php` so that it is a
 
 - try /redir to see how it is redirected to /kontakt
 - try /use-mirror to see how API call works
+
+## App directory description
+| Directory | Description |
+|-----|------|
+| .github/ | Automations |
+| assets/ | Frontend assets. When dealing with numerous assets, categorize them into specific subdirectories. |
+| cache/ | Latte cache - this is just for development as production-wise, there will be cache/ directory in the root of the app |
+| conf/ | Default configuration for a Seablast app and for PHPStan |
+| log/ | Logs - this is just for development as production-wise, there will be `log` directory in the root of the app |
+| models/ | If not all classes are models, change it to src/models, src/data, src/exceptions... |
+| templates/ | Latte templates to be inherited |
