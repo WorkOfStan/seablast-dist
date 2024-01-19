@@ -23,8 +23,8 @@ Note: the current configuration is in the `conf/phinx.local.php` so that it is a
 |-----|------|
 | .github/ | Automations |
 | assets/ | Frontend assets. When dealing with numerous assets, categorize them into specific subdirectories. |
-| cache/ | Latte cache - this is just for development as production-wise, there will be cache/ directory in the root of the app |
-| conf/ | Default configuration for a Seablast app and for PHPStan |
-| log/ | Logs - this is just for development as production-wise, there will be `log` directory in the root of the app |
-| models/ | If not all classes are models, change it to src/models, src/data, src/exceptions... |
+| cache/ | Latte cache |
+| conf/ | All configuration files: Seablast app, PHPStan, phinx |
+| log/ | All kind of logs |
+| models/ | If not all classes are models, change it to src/Models, src/Data, src/Exceptions... |
 | templates/ | Latte templates |
