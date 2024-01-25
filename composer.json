@@ -6,7 +6,7 @@
         "php": "^7.2|^8.2",
         "robmorgan/phinx": "^0.10.6|^0.12.3",
         "seablast/brief-api-client": "dev-develop",
-        "seablast/seablast": "dev-main"
+        "seablast/seablast": "dev-notest/refactoring24w2"
     },
     "repositories": [
         {
