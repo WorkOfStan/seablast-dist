@@ -15,8 +15,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### `Removed` for now removed features
 
 ### `Fixed` for any bugfixes
+- fixed .htaccess , so that index.php redirect isn't necessary
 
 ### `Security` in case of vulnerabilities
+- security: - Check: CKV2_GHA_1: "Ensure top-level permissions are not set to write-all" content read/write
 
 ## [0.1] - 2023-12-30
 - new application based on Seablast for PHP/0.1

@@ -13,6 +13,23 @@ Edit these two configuration files; then re-run assemble.sh
 
 Note: the current configuration is in the `conf/phinx.local.php` so that it is automatically NOT commited to git
 
+### Folders, where web can write
+- cache and log (and also e.g. app specific uploads)
+- rights: 2775
+- owner: server user, e.g. composerit
+- group: web user, e.g. www-data
+- run [permissions.sh](permissions.sh) to set up these permissions
+- upload_max_filesize in php.ini set to 8M
+
+### Security
+- enforcing HTTP to HTTPS MUST happen on the server-side, e.g. like this in `/etc/apache2/sites-enabled/www.plysonika.cz.conf`
+```htaccess
+<VirtualHost *:80>
+        RewriteEngine On
+        RewriteCond %{REQUEST_URI} !^/server-status.*
+        RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+```
+
 ## Examples
 
 - try /redir to see how it is redirected to /kontakt
