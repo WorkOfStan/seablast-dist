@@ -32,4 +32,4 @@ permissions:
 ###############
 jobs:
   call-workflow:
-    uses: WorkOfStan/MyCMS/.github/workflows/linter.yml@main
+    uses: WorkOfStan/seablast-actions/.github/workflows/linter.yml@main

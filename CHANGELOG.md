@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### `Changed` for changes in existing functionality
 - Guzzle instead of seablast/brief-api-client
+- GitHub workflows uses: WorkOfStan/seablast-actions instead of WorkOfStan/MyCMS
 
 ### `Deprecated` for soon-to-be removed features
 
