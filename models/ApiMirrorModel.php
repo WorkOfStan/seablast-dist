@@ -50,12 +50,12 @@ class ApiMirrorModel implements SeablastModelInterface
         $this->toBeMirrored = $data->mirror;
     }
 
+    /**
+     * @return stdClass
+     */
     public function knowledge(): stdClass
     {
         $result = new stdClass();
-        // array variant
-        //$rest->rest = ['mirrorField' => 'Mirrored ' . $this->toBeMirrored];
-        // object variant
         $result->rest = new stdClass();
         $result->rest->mirrorField = 'Mirrored ' . $this->toBeMirrored;
         return $result;

@@ -3,19 +3,13 @@
     "description": "Distribution of Seablast for PHP - a seed application",
     "type": "project",
     "require": {
-        "php": "^7.2|^8.2",
-        "robmorgan/phinx": "^0.10.6|^0.12.3",
-        "seablast/brief-api-client": "dev-develop",
+        "php": "^7.2.5 || ^8.2.0",
+        "guzzlehttp/guzzle": "^7.8",
+        "robmorgan/phinx": "^0.10.6 || ^0.12.3",
         "seablast/seablast": "dev-main"
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url":  "git@github.com:WorkOfStan/seablast-brief-api-client.git"
-        }
-    ],
     "require-dev": {
-        "phpunit/phpunit": "^4|^5|^6|^7|^8|^9|^10"
+        "phpunit/phpunit": "^4 || ^5 || ^6 || ^7 || ^8 || ^9 || ^10"
     },
     "license": "MIT",
     "authors": [

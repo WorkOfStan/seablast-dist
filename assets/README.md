@@ -5,4 +5,3 @@ These subdirectories can be organized by content type, for example:
 - images
 - scripts
 - styles
-

@@ -39,4 +39,4 @@ if [[ -f "phpunit.xml" ]]; then
 fi
 
 section_title "- phpstan"
-vendor/bin/phpstan.phar --configuration=conf/phpstan.webmozart-assert.neon analyse . --memory-limit 300M --pro
+vendor/bin/phpstan.phar --configuration=conf/phpstan.webmozart-assert.neon analyse . --memory-limit 350M --pro

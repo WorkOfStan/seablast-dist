@@ -4,3 +4,7 @@ includes:
       # to use https://github.com/phpstan/phpstan-webmozart-assert
       # phpstan/phpstan-webmozart-assert requires this settings
       - ../vendor/phpstan/phpstan-webmozart-assert/extension.neon
+#parameters:
+#    bootstrapFiles:
+#      # define('APP_DIR')
+#      - ../vendor/seablast/seablast/defineAppDir.php

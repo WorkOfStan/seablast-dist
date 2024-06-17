@@ -21,9 +21,8 @@ class RedirModel
      */
     public function knowledge(): stdClass
     {
-        $result = new stdClass();
         // typecasting array to stdClass works since PHP4
-        $result->redirection = (object) ['url' => './kontakt', 'httpCode' => 302];
+        $result = (object) ['httpCode' => 302, 'redirection' => (object) ['url' => './kontakt']];
         return $result;
     }
 }
