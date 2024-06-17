@@ -13,6 +13,7 @@ return static function (SeablastConfiguration $SBConfig): void {
         ->activate(SeablastConstant::FLAG_WEB_RUNNING)
     ;
     $SBConfig
+        ->setInt(SeablastConstant::SB_WEB_FORCE_ASSET_VERSION, 1)
         ->setArrayArrayString(
             SeablastConstant::APP_MAPPING,
             '/', // page slug, i.e. URL representation

@@ -37,6 +37,10 @@ class UseMirrorModel implements SeablastModelInterface
         $this->client = new Client();
     }
 
+    /**
+     * @return stdClass
+     * @throws \Exception
+     */
     public function knowledge(): stdClass
     {
         $arr = ['mirror' => 'xyz'];

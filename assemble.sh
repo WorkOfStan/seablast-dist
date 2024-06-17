@@ -29,3 +29,14 @@ composer update -a --prefer-dist --no-progress
 
 chapter "-- phinx migration"
 vendor/bin/phinx migrate -e development --configuration ./conf/phinx.local.php
+
+chapter "-- phinx TESTING migration"
+# In order to properly unit test all features, set-up a test database, put its credentials to testing section of phinx.yml and run phinx migrate -e testing before phpunit
+# Drop tables in the testing database if changes were made to migrations
+vendor/bin/phinx migrate -e testing --configuration ./conf/phinx.local.php
+
+[ ! -f "phpunit.xml" ] && warning "NO phpunit.xml CONFIGURATION"
+if [[ -f "phpunit.xml" ]]; then
+    chapter "-- phpunit"
+    vendor/bin/phpunit
+fi
