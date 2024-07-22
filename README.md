@@ -11,7 +11,7 @@ Run [assemble.sh](assemble.sh) to
 
 Edit these two configuration files; then re-run assemble.sh
 
-Note: the current configuration is in the `conf/phinx.local.php` so that it is automatically NOT commited to git
+Note: the current configuration is in the `conf/phinx.local.php` so that it is automatically NOT commited to Git
 
 ### Folders, where web can write
 - cache and log (and also e.g. app specific uploads)
