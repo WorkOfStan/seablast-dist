@@ -41,7 +41,8 @@ class ApiMirrorModel implements SeablastModelInterface
         //Debugger::barDump($data, 'Decoded JSON');
         Assert::object($data); // TODO recoverable error
         Debugger::log(
-            'Server REQUEST METHOD (should be POST): ' . $this->superglobals->server['REQUEST_METHOD'],
+            'Server REQUEST METHOD (should be POST): '
+            . (string) print_r($this->superglobals->server['REQUEST_METHOD'], true),
             ILogger::DEBUG
         );
         if (!isset($data->mirror)) {
