@@ -11,6 +11,7 @@ All planned changes to this project are documented in this file.
 ## Security
 
 - 231207, CSRF token
+- 241205, add Seablast/Auth
 
 ## Governance
 

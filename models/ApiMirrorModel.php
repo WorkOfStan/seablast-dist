@@ -48,6 +48,7 @@ class ApiMirrorModel implements SeablastModelInterface
         if (!isset($data->mirror)) {
             throw new \Exception('data->mirror expected');
         }
+        Assert::string($data->mirror);
         $this->toBeMirrored = $data->mirror;
     }
 
