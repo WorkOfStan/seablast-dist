@@ -5,6 +5,8 @@
  * The usage of constants defined in the SeablastConstant class is encouraged for the sake of hinting within IDE.
  */
 
+declare(strict_types=1);
+
 use Seablast\Seablast\SeablastConfiguration;
 use Seablast\Seablast\SeablastConstant;
 
@@ -45,7 +47,7 @@ return static function (SeablastConfiguration $SBConfig): void {
                 'id' => 'id', // OPTIONAL number GET parameter required for routing
                 'code' => 'code', // OPTIONAL string GET parameter required for routing
                 'tableName' => 'item', // OPTIONAL table where the data are stored
-            //'filterType' => 'article', // OPTIONAL value of type field used for this collection
+                //'filterType' => 'article', // OPTIONAL value of type field used for this collection
             ]
         )
         ->setArrayArrayString(

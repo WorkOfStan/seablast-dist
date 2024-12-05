@@ -6,6 +6,8 @@
  * `app.conf.dist.php` is a template for `app.conf.local.php`
  */
 
+declare(strict_types=1);
+
 use Seablast\Seablast\SeablastConfiguration;
 use Seablast\Seablast\SeablastConstant;
 
@@ -22,6 +24,7 @@ return static function (SeablastConfiguration $SBConfig): void {
         ->setArrayString(SeablastConstant::DEBUG_IP_LIST, [
             //'9.9.9.9', // dev office
         ])
+        //->setString(SeablastConstant::ADMIN_MAIL_ADDRESS, 'admin@test.xy') // fill-in your admin email
         //->setString(SeablastConstant::FROM_MAIL_ADDRESS, 'no-reply@server.cz') // live on server
         //->setInt(
         //    SeablastConstant::SB_WEB_FORCE_ASSET_VERSION,
