@@ -6,6 +6,8 @@ Distribution of a seed application for `Seablast for PHP`
 
 Create database with `Collation=utf8_general_ci` (create also separate testing database so that phinxlog migration_name doesn't overlap)
 
+Before starting to develop on this boilerplate, rename the namespace according to your app.
+
 Run [assemble.sh](assemble.sh) to
 
 - create `conf/phinx.local.php` based on [conf/phinx.dist.php](conf/phinx.dist.php) including the name of the database (and testing database) created above
@@ -14,6 +16,8 @@ Run [assemble.sh](assemble.sh) to
 Edit these two configuration files; then re-run assemble.sh
 
 Note: the current configuration is in the `conf/phinx.local.php` so that it is automatically NOT commited to Git
+
+If PHPStan reports `Constant APP_DIR not found.` error, just uncomment lines in [conf/phpstan.webmozart-assert.neon](conf/phpstan.webmozart-assert.neon).
 
 ### Folders, where web can write
 
