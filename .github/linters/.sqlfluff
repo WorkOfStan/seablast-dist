@@ -1,0 +1,43 @@
+## This /.sqlfluff file can be used to configure the SQLFluff linter when
+## used via the Super Linter. Copy it to the .github/linters folder of
+## your repo, and uncomment the necessary lines to configure the Super Linter.
+##
+## IMPORTANT NOTE: The Super Linter configuration file for SQLFluff
+## supersedes any local configuration files you might have in within your
+## codebase. For this reason it should only be used when you want the same
+## configuration for your entire code base. If you need different configuration
+## in different folders you must leave this config commented out, and instead
+## manage all your config files within your code base rather than in the
+## .github/linters folder
+##
+## Configuration options are described here:
+## https://docs.sqlfluff.com/en/stable/configuration.html
+##
+
+[sqlfluff]
+#dialect = ansi
+dialect = mysql
+# LT05: Ensure long line limit is 120 instead of default 80
+max_line_length = 120
+exclude_rules = ST06, ST09, CV02, AM04
+
+[sqlfluff:indentation]
+tab_space_size = 4
+indent_unit = space
+
+# Disable specific rules globally
+# ST06
+#[sqlfluff:rules:structure.column_order]
+#ignore = True
+
+# ST09
+#[sqlfluff:rules:structure.join_condition_order]
+#ignore = True
+
+# Ignores CV02 (COALESCE vs IFNULL)
+#[sqlfluff:rules:convention.coalesce]
+#ignore = True
+
+# Ignores AM04 (Unknown number of result columns)
+#[sqlfluff:rules:ambiguous.column_count]
+#ignore = True

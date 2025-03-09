@@ -19,6 +19,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### `Security` in case of vulnerabilities
 
+## [0.1.3] - 2025-03-09
+
+chore: GitHub Actions chaining
+
+### Changed
+
+- GitHub Actions chained in polish-the-code.yml (replaced linter.yml, php-composer-dependencies.yml, prettier-fix.yml and phpcbf.yml)
+- models folder to more universal src/Models
+- blast.sh - Management script for deployment and development of a Seablast application (instead of assemble.sh)
+
+### Fixed
+
+- changed .htaccess directive for Apache 2.2 `Order Allow,Deny\nDeny from all` to Apache 2.4 `Require all denied` to return 403 (instead of 500)
+
 ## [0.1.2] - 2024-12-05
 
 ### Added
@@ -46,7 +60,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - demonstrate API
 - demonstrate redirection
 
-[Unreleased]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.2...HEAD
-[0.1.2]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.1...v0.1.2
-[0.1.1]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1...v0.1.1
+[Unreleased]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.3...HEAD?w=1
+[0.1.3]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.2...v0.1.3?w=1
+[0.1.2]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.1...v0.1.2?w=1
+[0.1.1]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1...v0.1.1?w=1
 [0.1]: https://github.com/WorkOfStan/seablast-dist/releases/tag/v0.1

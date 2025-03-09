@@ -1,2 +1,2 @@
-Order Allow,Deny
-Deny from all
+# placeholder for the log folder, so that it exists when a GitHub Action needs to write into it
+Require all denied
