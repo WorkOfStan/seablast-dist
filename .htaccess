@@ -29,7 +29,6 @@ RewriteRule ^(de/|en/|fr/|sk/|zh/)?(.*)$ vendor/seablast/seablast/index.php?lang
 RedirectMatch 404 vendor\/(?!seablast\/)
 # nothing starting .git, i.e. also .github or .gitignore
 RedirectMatch 404 /\.git
-#RedirectMatch 404 \.gitignore # TODO check if it is 404 anyway
 # hide these directories
 RedirectMatch 404 \/cache\/
 RedirectMatch 404 \/conf\/
