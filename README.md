@@ -4,11 +4,11 @@ Distribution of a seed application for `Seablast for PHP`
 
 ## Deployment
 
-Create database with `Collation=utf8_general_ci` (create also separate testing database so that phinxlog migration_name doesn't overlap)
+Create database with `Collation=utf8_general_ci` or rather `utf8mb3_general_ci` (create also separate testing database so that phinxlog migration_name doesn't overlap)
 
 Before starting to develop on this boilerplate, rename the namespace according to your app.
 
-Run [assemble.sh](assemble.sh) to
+Run [./blast.sh](./blast.sh) or [./vendor/seablast/seablast/blast.sh](https://github.com/WorkOfStan/seablast/blob/v0.2.9/blast.sh) to
 
 - create `conf/phinx.local.php` based on [conf/phinx.dist.php](conf/phinx.dist.php) including the name of the database (and testing database) created above
 - create `conf/app.conf.local.php` based on [conf/app.conf.dist.php](conf/app.conf.dist.php) including the phinx environment to be used and change any settings you like. (OPTIONAL)
@@ -53,5 +53,5 @@ If PHPStan reports `Constant APP_DIR not found.` error, just uncomment lines in 
 | cache/    | Latte cache                                                                                       |
 | conf/     | All configuration files: Seablast app, PHPStan, phinx                                             |
 | log/      | All kind of logs                                                                                  |
-| models/   | If not all classes are models, change it to src/Models, src/Data, src/Exceptions...               |
+| src/      | Classes with respecitve subfolders src/Data, src/Exceptions, src/Models...                        |
 | views/    | Latte templates                                                                                   |
