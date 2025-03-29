@@ -6,17 +6,9 @@ namespace Seablast\Distribution\Models;
 
 use stdClass;
 
-//use Tracy\Debugger;
-//use Webmozart\Assert\Assert;
-
-class RedirModel
+class RedirModel // implements SeablastModelInterface
 {
     use \Nette\SmartObject;
-
-    public function __construct()
-    {
-        //
-    }
 
     /**
      * @return stdClass
@@ -24,7 +16,10 @@ class RedirModel
     public function knowledge(): stdClass
     {
         // typecasting array to stdClass works since PHP4
-        $result = (object) ['httpCode' => 302, 'redirection' => (object) ['url' => './kontakt']];
+        $result = (object) ['httpCode' => 302, 'redirection' => (object) [
+            'url' => // SeablastConstant::SB_APP_ROOT_ABSOLUTE_URL
+            './kontakt'
+            ]];
         return $result;
     }
 }
