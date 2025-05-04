@@ -19,6 +19,11 @@ Note: the current configuration is in the `conf/phinx.local.php` so that it is a
 
 If PHPStan reports `Constant APP_DIR not found.` error, just uncomment lines in [conf/phpstan.webmozart-assert.neon](conf/phpstan.webmozart-assert.neon).
 
+```sh
+# For all the deployment and development options, run
+./vendor/seablast/seablast/blast.sh -?
+```
+
 ### Folders, where web can write
 
 - cache and log (and also e.g. app specific uploads)
