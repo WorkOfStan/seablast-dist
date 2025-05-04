@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- new application based on Seablast for PHP/0.2.9
+
 ### `Added` for new features
 
 ### `Changed` for changes in existing functionality
@@ -18,6 +20,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### `Fixed` for any bugfixes
 
 ### `Security` in case of vulnerabilities
+
+- return 404 and thus hide all the files in any directory that have no filename but only an extension (like .prettierignore)
 
 ## [0.1.3] - 2025-03-09
 
