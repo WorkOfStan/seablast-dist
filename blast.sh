@@ -157,8 +157,8 @@ fi
 case "$1" in
     main)
         printf "Switches your working tree to the specified branch: main. Git will then fetch from origin (showing you a verbose progress report), bringing in all branches and tags, deleting any remote-tracking branches that have been removed on the server, and then merge (not rebase) the corresponding remote branch into your current branch.\n"
-        read -p "Continue? [y/N] " -n1; echo
-        [[ $REPLY =~ ^[Yy]$ ]] || { echo "Aborted."; exit 1; }
+        read -r -n1 -p "Continue? [y/N] " reply; echo
+        [[ $reply =~ ^[Yy]$ ]] || { echo "Aborted."; exit 1; }
         back_to_main
         ;;
     phpstan)
