@@ -15,11 +15,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### `Changed` for changes in existing functionality
 
+- PHPUnit tests folder renamed according to a common convention
+- Models moved to src folder for better compatibility
+
 ### `Deprecated` for soon-to-be removed features
 
 ### `Removed` for now removed features
 
 ### `Fixed` for any bugfixes
+
+- only src folder in the root should be hidden from the web server access
+- Scheduled GitHub Action runs do not commit-changes automatically to the same branch
 
 ### `Security` in case of vulnerabilities
 

@@ -34,9 +34,10 @@ RedirectMatch 404 \/cache\/
 RedirectMatch 404 \/conf\/
 RedirectMatch 404 \/log\/
 RedirectMatch 404 \/nbproject\/
-RedirectMatch 404 \/src\/
+# only src folder in the root is hidden from the web server access
+RedirectMatch 404 ^/src(/|$)
 RedirectMatch 404 \/temp\/
-RedirectMatch 404 \/Test\/
+RedirectMatch 404 \/tests\/
 RedirectMatch 404 \/views\/
 # hide these files
 RedirectMatch 404 composer\.
