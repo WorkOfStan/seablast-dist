@@ -5,7 +5,7 @@
   "repositories": [
     {
       "type": "vcs",
-      "url":  "https://github.com/WorkOfStan/seablast-i18n"
+      "url": "https://github.com/WorkOfStan/seablast-i18n"
     }
   ],
   "require": {
