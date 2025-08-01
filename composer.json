@@ -2,11 +2,18 @@
   "name": "seablast/dist",
   "description": "Distribution of Seablast for PHP - a seed application",
   "type": "project",
+  "repositories": [
+    {
+      "type": "vcs",
+      "url":  "https://github.com/WorkOfStan/seablast-i18n"
+    }
+  ],
   "require": {
-    "php": "^7.2.5 || ^8.2.0",
+    "php": ">=7.2.5 <8.0 || >=8.2.0 <8.5",
     "guzzlehttp/guzzle": "^7.8",
     "robmorgan/phinx": "^0.12.13 || ^0.13.4 || ^0.14.0 || ^0.15.5 || ^0.16.5",
-    "seablast/seablast": "dev-feature/nav-latte"
+    "seablast/i18n": "dev-feature/init",
+    "seablast/seablast": "^0.2.10.1"
   },
   "require-dev": {
     "phpunit/phpunit": "^8.4 || ^9 || ^10 || ^11 || ^12"

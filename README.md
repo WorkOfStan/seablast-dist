@@ -13,7 +13,7 @@ Run [./blast.sh](./blast.sh) or [./vendor/seablast/seablast/blast.sh](https://gi
 - create `conf/phinx.local.php` based on [conf/phinx.dist.php](conf/phinx.dist.php) including the name of the database (and testing database) created above
 - create `conf/app.conf.local.php` based on [conf/app.conf.dist.php](conf/app.conf.dist.php) including the phinx environment to be used and change any settings you like. (OPTIONAL)
 
-Edit these two configuration files; then re-run assemble.sh
+Edit these two configuration files; then re-run blast.sh
 
 Note: the current configuration is in the `conf/phinx.local.php` so that it is automatically NOT commited to Git
 

@@ -1,4 +1,4 @@
-# Friendly URL
+# Friendly URL and for RewriteRule below
 RewriteEngine on
 # In rare ocassion, when The original request, and the substitution, are underneath an Alias, see https://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewritebase
 #RewriteBase "/path/to/app/"

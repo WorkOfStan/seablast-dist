@@ -6,7 +6,6 @@
 log/*
 cache/*
 !/log/.htaccess
-!/cache/.htaccess
 /.sass-cache/
 /.php_cs.cache
 /.php-cs-fixer.cache
