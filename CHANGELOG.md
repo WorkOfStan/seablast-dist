@@ -39,7 +39,7 @@ feat: language switching (new application based on Seablast for PHP/0.2.11)
 - only src folder in the root should be hidden from the web server access
 - Scheduled GitHub Action runs do not commit-changes automatically to the same branch
 
-# Security
+### Security
 
 - return 404 and thus hide all the files in any directory that have no filename but only an extension (like .prettierignore)
 
