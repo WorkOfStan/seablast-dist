@@ -8,16 +8,21 @@ Create database with `Collation=utf8_general_ci` or rather `utf8mb3_general_ci` 
 
 Before starting to develop on this boilerplate, rename the namespace according to your app.
 
-Run [./blast.sh](./blast.sh) or [./vendor/seablast/seablast/blast.sh](https://github.com/WorkOfStan/seablast/blob/v0.2.9/blast.sh) to
+Run [./blast.sh](./blast.sh) or [./vendor/seablast/seablast/blast.sh](https://github.com/WorkOfStan/seablast/blob/v0.2.10.1/blast.sh) to
 
 - create `conf/phinx.local.php` based on [conf/phinx.dist.php](conf/phinx.dist.php) including the name of the database (and testing database) created above
 - create `conf/app.conf.local.php` based on [conf/app.conf.dist.php](conf/app.conf.dist.php) including the phinx environment to be used and change any settings you like. (OPTIONAL)
 
-Edit these two configuration files; then re-run assemble.sh
+Edit these two configuration files; then re-run blast.sh
 
 Note: the current configuration is in the `conf/phinx.local.php` so that it is automatically NOT commited to Git
 
 If PHPStan reports `Constant APP_DIR not found.` error, just uncomment lines in [conf/phpstan.webmozart-assert.neon](conf/phpstan.webmozart-assert.neon).
+
+```sh
+# For all the deployment and development options, run
+./vendor/seablast/seablast/blast.sh -?
+```
 
 ### Folders, where web can write
 
@@ -50,7 +55,7 @@ If PHPStan reports `Constant APP_DIR not found.` error, just uncomment lines in 
 | --------- | ------------------------------------------------------------------------------------------------- |
 | .github/  | Automations                                                                                       |
 | assets/   | Frontend assets. When dealing with numerous assets, categorize them into specific subdirectories. |
-| cache/    | Latte cache                                                                                       |
+| cache/    | Latte cache (deployed by [blast.sh](blast.sh))                                                    |
 | conf/     | All configuration files: Seablast app, PHPStan, phinx                                             |
 | log/      | All kind of logs                                                                                  |
 | src/      | Classes with respecitve subfolders src/Data, src/Exceptions, src/Models...                        |

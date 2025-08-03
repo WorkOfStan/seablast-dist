@@ -1,0 +1,12 @@
+                {* TODO JavaScript to toggle menu *}
+                <!-- Hamburger menu for mobile -->
+                <div id="hamburger-menu">☰</div>
+                <ul id="menu">
+                    <li><a href="#">HOME DIST</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="{$configuration->getString('SB_APP_ROOT_ABSOLUTE_URL')}/blog-e">Blog (editable)</a></li>
+                    <li><a href="{$configuration->getString('SB_APP_ROOT_ABSOLUTE_URL')}/blog-r">Blog (read-only)</a></li>
+                    <li n:if="$configuration->flag->status('I18n:SHOW_LANGUAGE_SELECTOR')">{include '../vendor/seablast/i18n/views/uls.menu.latte'}</li>
+                </ul>

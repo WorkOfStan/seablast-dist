@@ -41,6 +41,22 @@ return static function (SeablastConfiguration $SBConfig): void {
         )
         ->setArrayArrayString(
             SeablastConstant::APP_MAPPING,
+            '/blog-e', // page slug, i.e. URL representation
+            [
+                'template' => 'blog-editable', // template used by the View component
+                'model' => '\Seablast\Distribution\Models\BlogModel',
+            ]
+        )
+        ->setArrayArrayString(
+            SeablastConstant::APP_MAPPING,
+            '/blog-r', // page slug, i.e. URL representation
+            [
+                'template' => 'blog-readonly', // template used by the View component
+                'model' => '\Seablast\Distribution\Models\BlogModel',
+            ]
+        )
+        ->setArrayArrayString(
+            SeablastConstant::APP_MAPPING,
             '/item', // page slug, i.e. URL representation
             [
                 'template' => 'item', // template used by the View component

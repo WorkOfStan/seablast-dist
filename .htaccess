@@ -1,4 +1,4 @@
-# Friendly URL
+# Friendly URL and for RewriteRule below
 RewriteEngine on
 # In rare ocassion, when The original request, and the substitution, are underneath an Alias, see https://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewritebase
 #RewriteBase "/path/to/app/"
@@ -34,9 +34,10 @@ RedirectMatch 404 \/cache\/
 RedirectMatch 404 \/conf\/
 RedirectMatch 404 \/log\/
 RedirectMatch 404 \/nbproject\/
-RedirectMatch 404 \/src\/
+# only src folder in the root is hidden from the web server access
+RedirectMatch 404 ^/src(/|$)
 RedirectMatch 404 \/temp\/
-RedirectMatch 404 \/Test\/
+RedirectMatch 404 \/tests\/
 RedirectMatch 404 \/views\/
 # hide these files
 RedirectMatch 404 composer\.
@@ -47,7 +48,7 @@ RedirectMatch 404 phpunit\.xml
 # hide files with these extensions
 RedirectMatch 404 \.md$
 RedirectMatch 404 \.neon$
-RedirectMatch 404 \.sass-cache$
 RedirectMatch 404 \.sh$
-RedirectMatch 404 \.stylelintignore$
 RedirectMatch 404 \.yml$
+# hide all the files in any directory that have no filename but only an extension (like .prettierignore)
+RedirectMatch 404 /(\.[^.]+)$

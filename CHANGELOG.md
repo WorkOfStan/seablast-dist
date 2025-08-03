@@ -19,6 +19,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### `Security` in case of vulnerabilities
 
+## [0.1.4] - 2025-08-03
+
+feat: language switching (new application based on Seablast for PHP/0.2.11)
+
+### Added
+
+- local nav.latte for menu
+- i18n module
+- language switching by [Seablast\I18n](https://github.com/WorkOfStan/seablast-i18n) included.
+
+### Changed
+
+- PHPUnit tests folder renamed according to a common convention
+- Models moved to src folder for better compatibility
+
+### Fixed
+
+- only src folder in the root should be hidden from the web server access
+- Scheduled GitHub Action runs do not commit-changes automatically to the same branch
+
+### Security
+
+- return 404 and thus hide all the files in any directory that have no filename but only an extension (like .prettierignore)
+
 ## [0.1.3] - 2025-03-09
 
 chore: GitHub Actions chaining
@@ -60,7 +84,8 @@ chore: GitHub Actions chaining
 - demonstrate API
 - demonstrate redirection
 
-[Unreleased]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.3...HEAD?w=1
+[Unreleased]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.4...HEAD?w=1
+[0.1.4]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.3...v0.1.4?w=1
 [0.1.3]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.2...v0.1.3?w=1
 [0.1.2]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.1...v0.1.2?w=1
 [0.1.1]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1...v0.1.1?w=1

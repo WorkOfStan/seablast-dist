@@ -1,0 +1,27 @@
+{layout '../vendor/seablast/seablast/views/BlueprintWeb.latte'}
+{block mainblock}
+<h1>
+    {ifset $itemId}
+        <a href="{$configuration->getString('SB_APP_ROOT_ABSOLUTE_URL')}/blog-r">Blog (read-only)</a>
+    {else}
+        Blog
+    {/ifset}
+</h1>
+
+{foreach $items as $item}
+    <article class="post">
+        {* Check if $itemId is set to decide if we have multiple posts - If we have an “id” parameter, we’re in single‐post mode *}
+        {ifset $itemId}
+            {* single‐item mode: editable fields for admins *}
+            <h2>{$item['title']}</h2>
+            {*<p class="post-date">Created at: {$item['created_at']}</p>*}
+            <div class="post-content">{$item['content']|breakLines}</div>
+        {else}
+            {* listing mode: links into each item TODO paging *}
+            <h2><a href="?id={$item['item_id']}">{$item['title']}</a></h2>
+            {*<p class="post-date">Created at: {$item['created_at']}</p>*}
+            <div class="post-content">{$item['content']|breakLines}...</div>
+        {/ifset}
+    </article>
+{/foreach}
+{/block}
