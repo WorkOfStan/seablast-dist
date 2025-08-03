@@ -9,7 +9,7 @@ return
             '%%PHINX_CONFIG_DIR%%/db/migrations',
             // comment out following lines if phinx create selection gets stuck
             //'%%PHINX_CONFIG_DIR%%/../vendor/seablast/auth/conf/db/migrations',
-            //'%%PHINX_CONFIG_DIR%%/../vendor/seablast/i18n/conf/db/migrations',
+            '%%PHINX_CONFIG_DIR%%/../vendor/seablast/i18n/conf/db/migrations',
         ],
         'seeds' => '%%PHINX_CONFIG_DIR%%/db/seeds'
     ],

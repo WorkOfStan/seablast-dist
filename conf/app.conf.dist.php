@@ -15,10 +15,11 @@ use Seablast\Seablast\SeablastConstant;
 
 return static function (SeablastConfiguration $SBConfig): void {
     $SBConfig->flag
-        //->deactivate(SeablastConstant::FLAG_WEB_RUNNING)
+        //->deactivate(SeablastConstant::FLAG_WEB_RUNNING) // doesn't have an effect on localhost
         //->activate(SeablastConstant::FLAG_DEBUG_JSON) // JSON would be displayed directly with Tracy
         ->activate(SeablastConstant::ADMIN_MAIL_ENABLED) // live on server
         ->activate(SeablastConstant::USER_MAIL_ENABLED)  // live on server
+        //->deactivate(I18nConstant::FLAG_SHOW_LANGUAGE_SELECTOR)
         ;
     $SBConfig
         ->setArrayString(SeablastConstant::DEBUG_IP_LIST, [
