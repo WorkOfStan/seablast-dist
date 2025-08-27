@@ -1,0 +1,2 @@
+# placeholder for the tests folder, so that it exists when conf/phpunit-github.xml wants to access it
+Require all denied
