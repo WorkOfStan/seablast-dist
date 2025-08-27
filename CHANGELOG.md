@@ -9,7 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### `Added` for new features
 
+- [zizmor.yaml](.github/linters/zizmor.yaml): disable unpinned-uses check - Allows referring to an action by version tag instead of exact hash, so that Dependabot can monitor and update versions automatically.
+
 ### `Changed` for changes in existing functionality
+
+- chore: super-linter bump to v8.1.0
 
 ### `Deprecated` for soon-to-be removed features
 
