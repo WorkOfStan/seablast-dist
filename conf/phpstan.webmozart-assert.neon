@@ -1,4 +1,5 @@
 # The main configuration file in case `composer require --dev phpstan/phpstan-webmozart-assert` is used - makes difference if PHPStan level > 6
+# This file is expected by `WorkOfStan/seablast-actions/.github/workflows/php-composer-dependencies-reusable.yml`.
 includes:
       - phpstan.app.neon
       # to use https://github.com/phpstan/phpstan-webmozart-assert
