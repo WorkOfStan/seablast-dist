@@ -9,9 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### `Added` for new features
 
+- chore: add commit-check/commit-check-action
+
 ### `Changed` for changes in existing functionality
 
-- chore: super-linter bump to v8.1.0
+- chore: super-linter bump to v8.2.0
 
 ### `Deprecated` for soon-to-be removed features
 

@@ -3,5 +3,6 @@ parameters:
     excludePaths:
         analyseAndScan:
             - ../cache/*
+            # (?)
         analyse:
           - ../vendor
