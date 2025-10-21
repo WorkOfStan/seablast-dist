@@ -23,7 +23,7 @@ permissions:
 
 jobs:
   # Note: https://docs.github.com/en/actions/using-workflows/reusing-workflows The strategy property is not supported in any job that calls a reusable workflow.
-  
+
   commit-check:
     runs-on: ubuntu-latest
     # use permissions because pull-request comments are used
@@ -49,7 +49,7 @@ jobs:
           author-email: true
           job-summary: true
           pr-comments: ${{ github.event_name == 'pull_request' }}
-  
+
   php-composer-unit-stan:
     uses: WorkOfStan/seablast-actions/.github/workflows/php-composer-dependencies-reusable.yml@v0.2.6
     with:
