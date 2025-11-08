@@ -88,5 +88,11 @@ return static function (SeablastConfiguration $SBConfig): void {
                 'model' => '\Seablast\Distribution\Models\RedirModel',
             ]
         )
+        // todo add AuthConstant and test thorughly
+        //->setString(
+        //    AuthConstant::SOCIAL_LOGIN_SUCCESS_URL,
+        //    $SBConfig->getString(SeablastConstant::SB_APP_ROOT_ABSOLUTE_URL) 
+        //    . $SBConfig->getString('AuthApp:USER_ROUTE')
+        //)
     ;
 };

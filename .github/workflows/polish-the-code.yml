@@ -51,7 +51,7 @@ jobs:
           pr-comments: ${{ github.event_name == 'pull_request' }}
 
   php-composer-unit-stan:
-    uses: WorkOfStan/seablast-actions/.github/workflows/php-composer-dependencies-reusable.yml@v0.2.6
+    uses: WorkOfStan/seablast-actions/.github/workflows/php-composer-dependencies-reusable.yml@v0.2.7
     with:
       # JSON
       php-version: '["7.2", "7.3", "7.4", "8.2", "8.3", "8.4"]'
@@ -92,6 +92,6 @@ jobs:
 
   super-linter:
     needs: phpcs-phpcbf
-    uses: WorkOfStan/seablast-actions/.github/workflows/linter.yml@v0.2.6
+    uses: WorkOfStan/seablast-actions/.github/workflows/linter.yml@v0.2.7
     with:
       runs-on: "ubuntu-latest"
