@@ -65,6 +65,6 @@ jobs:
 
   super-linter:
     needs: phpcs-phpcbf
-    uses: WorkOfStan/seablast-actions/.github/workflows/linter.yml@v0.2.5.2
+    uses: WorkOfStan/seablast-actions/.github/workflows/linter.yml@v0.2.7
     with:
       runs-on: "ubuntu-latest"
