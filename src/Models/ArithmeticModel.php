@@ -126,6 +126,9 @@ class ArithmeticModel implements SeablastModelInterface
         return $evaluation;
     }
 
+    /**
+     * @param mixed $value
+     */
     private function filterOperand($value): ?int
     {
         if ($value === null || $value === '') {
@@ -141,6 +144,9 @@ class ArithmeticModel implements SeablastModelInterface
         return $intValue;
     }
 
+    /**
+     * @param mixed $value
+     */
     private function filterOperator($value): ?string
     {
         if (!is_string($value)) {
@@ -150,6 +156,9 @@ class ArithmeticModel implements SeablastModelInterface
         return array_key_exists($value, self::OPERATORS) ? $value : null;
     }
 
+    /**
+     * @param mixed $value
+     */
     private function filterUserResult($value): ?int
     {
         if ($value === null || $value === '') {
@@ -159,6 +168,9 @@ class ArithmeticModel implements SeablastModelInterface
         return is_int($filtered) ? $filtered : null;
     }
 
+    /**
+     * @param mixed $value
+     */
     private function computeDuration($value): ?int
     {
         if ($value === null || $value === '') {
