@@ -1,0 +1,62 @@
+{layout '../vendor/seablast/seablast/views/BlueprintWeb.latte'}
+{block mainblock}
+<section class="arithmetic-demo">
+    <h1>Aritmetický trénink</h1>
+    <p>
+        Ukázka, jak MVC Seablast zvládne jednoduchou aplikaci s&nbsp;modelem, šablonou Latte a&nbsp;perzistencí.
+        Každé načtení formuláře připraví nový příklad s&nbsp;čísly 1–99.
+    </p>
+
+    <form method="post" class="arithmetic-form">
+        <input type="hidden" name="operand_a" value="{$operation->operandA}">
+        <input type="hidden" name="operand_b" value="{$operation->operandB}">
+        <input type="hidden" name="operator" value="{$operation->operator}">
+        <input type="hidden" name="started_at" value="{$operation->startedAt}">
+
+        <label class="arithmetic-problem">
+            <span>{$operation->operandA}</span>
+            <span class="operator">{$operation->operatorSymbol}</span>
+            <span>{$operation->operandB}</span>
+            <span>=</span>
+            <input type="number" name="user_answer" inputmode="numeric" step="1" required>
+        </label>
+
+        <button type="submit">Ověřit výsledek</button>
+    </form>
+
+    <div n:ifset="$evaluation" class="evaluation {if $evaluation->isCorrect}is-correct{else}is-error{/if}">
+        <h2>Vyhodnocení</h2>
+        <p>{$evaluation->message}</p>
+        <ul>
+            <li>Příklad: {$evaluation->operandA} {$evaluation->operatorSymbol} {$evaluation->operandB}</li>
+            <li>Správný výsledek: <strong>{$evaluation->correctResult}</strong></li>
+            <li>Tvůj výsledek: <strong>{if $evaluation->userResult !== null}{$evaluation->userResult}{else}—{/if}</strong></li>
+            <li n:if="$evaluation->responseMs !== null">Reakční doba: {$evaluation->responseMs}&nbsp;ms</li>
+        </ul>
+    </div>
+
+    <section n:if="$recentAttempts" class="recent-attempts">
+        <h2>Poslední uložené pokusy</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Čas</th>
+                    <th>Příklad</th>
+                    <th>Správně</th>
+                    <th>Odpověď</th>
+                    <th>Reakce</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr n:foreach="$recentAttempts as $attempt" class="{if $attempt->isCorrect}success{else}failure{/if}">
+                    <td>{$attempt->createdAt|date:'j.n. H:i:s'}</td>
+                    <td>{$attempt->operandA} {$attempt->operatorSymbol} {$attempt->operandB} = {$attempt->correctResult}</td>
+                    <td>{if $attempt->isCorrect}✔︎{else}✗{/if}</td>
+                    <td>{if $attempt->userResult !== null}{$attempt->userResult}{else}—{/if}</td>
+                    <td>{if $attempt->responseMs !== null}{$attempt->responseMs}&nbsp;ms{else}—{/if}</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</section>
+{/block}

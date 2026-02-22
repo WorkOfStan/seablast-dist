@@ -83,10 +83,24 @@ return static function (SeablastConfiguration $SBConfig): void {
         )
         ->setArrayArrayString(
             SeablastConstant::APP_MAPPING,
+            '/arithmetic',
+            [
+                'template' => 'arithmetic',
+                'model' => '\Seablast\Distribution\Models\ArithmeticModel',
+            ]
+        )
+        ->setArrayArrayString(
+            SeablastConstant::APP_MAPPING,
             '/redir', // page slug, i.e. URL representation
             [
                 'model' => '\Seablast\Distribution\Models\RedirModel',
             ]
         )
+        // todo add AuthConstant and test thorughly
+        //->setString(
+        //    AuthConstant::SOCIAL_LOGIN_SUCCESS_URL,
+        //    $SBConfig->getString(SeablastConstant::SB_APP_ROOT_ABSOLUTE_URL)
+        //    . $SBConfig->getString('AuthApp:USER_ROUTE')
+        //)
     ;
 };

@@ -23,11 +23,43 @@ permissions:
 
 jobs:
   # Note: https://docs.github.com/en/actions/using-workflows/reusing-workflows The strategy property is not supported in any job that calls a reusable workflow.
+
+  commit-check:
+    runs-on: ubuntu-latest
+    # use permissions because pull-request comments are used
+    permissions:
+      contents: read
+      pull-requests: write
+      # so that it can actually write pr-comments
+      issues: write
+    # Limit the running time
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          # checkout PR HEAD commit
+          ref: ${{ github.event.pull_request.head.sha }}
+          # required for merge-base check
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: commit-check/commit-check-action@v2
+        env:
+          # use GITHUB_TOKEN because use of pr-comments
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          message: true
+          # to accept dependabot/github_actions/*
+          branch: false
+          author-name: true
+          author-email: true
+          job-summary: true
+          pr-comments: ${{ github.event_name == 'pull_request' }}
+
   php-composer-unit-stan:
-    uses: WorkOfStan/seablast-actions/.github/workflows/php-composer-dependencies-reusable.yml@v0.2.5.2
+    uses: WorkOfStan/seablast-actions/.github/workflows/php-composer-dependencies-reusable.yml@v0.2.8
     with:
       # JSON
-      php-version: '["7.2", "7.3", "7.4", "8.2", "8.3", "8.4"]'
+      php-version: '["7.2", "7.3", "7.4", "8.2", "8.3", "8.4", "8.5"]'
       # OPTIONAL path with the default database configuration
       phinx-config: "./conf/phinx.dist.php"
       # OPTIONAL path where the app code is looking for the database configuration
@@ -35,7 +67,7 @@ jobs:
       runs-on: "ubuntu-latest"
 
   prettier-fix:
-    needs: php-composer-unit-stan
+    needs: [php-composer-unit-stan, commit-check]
     # Note: runs-on doesn't accept all expressions, so a string is used
     runs-on: "ubuntu-latest"
     permissions:
@@ -44,7 +76,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Invoke the Prettier fix
-        uses: WorkOfStan/prettier-fix@v1.1.6
+        uses: WorkOfStan/prettier-fix@v1
         with:
           commit-changes: ${{ github.event_name != 'schedule' }}
 
@@ -57,7 +89,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Invoke the PHPCS check and PHPCBF fix
-        uses: WorkOfStan/phpcs-fix@v1.0.2
+        uses: WorkOfStan/phpcs-fix@v1
         with:
           commit-changes: ${{ github.event_name != 'schedule' }}
           php-version: "8.2"
@@ -65,6 +97,6 @@ jobs:
 
   super-linter:
     needs: phpcs-phpcbf
-    uses: WorkOfStan/seablast-actions/.github/workflows/linter.yml@v0.2.5.2
+    uses: WorkOfStan/seablast-actions/.github/workflows/linter.yml@v0.2.8
     with:
       runs-on: "ubuntu-latest"
