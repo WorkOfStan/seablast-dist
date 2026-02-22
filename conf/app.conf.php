@@ -83,6 +83,14 @@ return static function (SeablastConfiguration $SBConfig): void {
         )
         ->setArrayArrayString(
             SeablastConstant::APP_MAPPING,
+            '/arithmetic',
+            [
+                'template' => 'arithmetic',
+                'model' => '\Seablast\Distribution\Models\ArithmeticModel',
+            ]
+        )
+        ->setArrayArrayString(
+            SeablastConstant::APP_MAPPING,
             '/redir', // page slug, i.e. URL representation
             [
                 'model' => '\Seablast\Distribution\Models\RedirModel',

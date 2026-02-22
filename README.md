@@ -48,6 +48,7 @@ If PHPStan reports `Constant APP_DIR not found.` error, just uncomment lines in 
 
 - try /redir to see how it is redirected to /kontakt
 - try /use-mirror to see how API call works
+- try /arithmetic to see a simple MVC + Latte + DB demo
 
 ## App directory description
 
