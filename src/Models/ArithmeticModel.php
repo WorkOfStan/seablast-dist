@@ -30,8 +30,10 @@ class ArithmeticModel implements SeablastModelInterface
         '*' => '×',
     ];
 
-    private SeablastConfiguration $configuration;
-    private Superglobals $superglobals;
+    /** @var SeablastConfiguration */
+    private $configuration;
+    /** @var Superglobals */
+    private $superglobals;
 
     public function __construct(SeablastConfiguration $configuration, Superglobals $superglobals)
     {
