@@ -127,7 +127,7 @@ class ArithmeticModel implements SeablastModelInterface
     }
 
     /**
-     * @param mixed $value
+     * @param int|string|null $value
      */
     private function filterOperand($value): ?int
     {
@@ -145,7 +145,7 @@ class ArithmeticModel implements SeablastModelInterface
     }
 
     /**
-     * @param mixed $value
+     * @param string|null $value
      */
     private function filterOperator($value): ?string
     {
@@ -157,7 +157,7 @@ class ArithmeticModel implements SeablastModelInterface
     }
 
     /**
-     * @param mixed $value
+     * @param int|string|null $value
      */
     private function filterUserResult($value): ?int
     {
@@ -169,7 +169,7 @@ class ArithmeticModel implements SeablastModelInterface
     }
 
     /**
-     * @param mixed $value
+     * @param int|string|null $value
      */
     private function computeDuration($value): ?int
     {
@@ -199,6 +199,9 @@ class ArithmeticModel implements SeablastModelInterface
         throw new \InvalidArgumentException('Unsupported operator ' . $operator);
     }
 
+    /**
+     * @param array{operand_a:int, operand_b:int, operator:string, correct_result:int, user_result:?int, is_correct:bool, response_ms:?int} $payload
+     */
     private function storeAttempt(array $payload): ?string
     {
         try {
@@ -251,6 +254,9 @@ class ArithmeticModel implements SeablastModelInterface
         return null;
     }
 
+    /**
+     * @return array<int, \stdClass>
+     */
     private function fetchRecentAttempts(): array
     {
         try {
