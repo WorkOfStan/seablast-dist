@@ -21,6 +21,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.5] - 2026-02-22
 
+feat: arithmetic trainer demo (model, Latte view, and persistence)
+
 ### Added
 
 - chore: add commit-check/commit-check-action
