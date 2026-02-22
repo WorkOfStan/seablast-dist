@@ -13,6 +13,8 @@ All planned changes to this project are documented in this file.
   - // Seablast-dist example block
   - // /Seablast-dist example block
   - Hledá jen ten string na řádce, tak způsob komentování je fuk
+- 260222, /blog-e - editable for logged-in users
+- 260222, ArithmeticModel.php and its reference in nav.latte and config gets removed by clean-slate.sh
 
 ## Security
 

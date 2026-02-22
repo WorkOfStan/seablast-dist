@@ -9,12 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### `Added` for new features
 
-- feat: arithmetic trainer demo (model, Latte view, and persistence)
-- chore: add commit-check/commit-check-action
-
 ### `Changed` for changes in existing functionality
-
-- chore: super-linter bump to v8.2.0
 
 ### `Deprecated` for soon-to-be removed features
 
@@ -23,6 +18,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### `Fixed` for any bugfixes
 
 ### `Security` in case of vulnerabilities
+
+## [0.1.5] - 2026-02-22
+
+### Added
+
+- chore: add commit-check/commit-check-action
+- add PHP/8.5 support
+- feat: arithmetic trainer demo (model, Latte view, and persistence)
+
+### Changed
+
+- chore: super-linter bump to v8.5.0
 
 ## [0.1.4] - 2025-08-03
 
@@ -89,7 +96,8 @@ chore: GitHub Actions chaining
 - demonstrate API
 - demonstrate redirection
 
-[Unreleased]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.4...HEAD?w=1
+[Unreleased]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.5...HEAD?w=1
+[0.1.5]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.4...v0.1.5?w=1
 [0.1.4]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.3...v0.1.4?w=1
 [0.1.3]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.2...v0.1.3?w=1
 [0.1.2]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.1...v0.1.2?w=1

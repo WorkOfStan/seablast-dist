@@ -205,7 +205,10 @@ class ArithmeticModel implements SeablastModelInterface
     }
 
     /**
-     * @param array{operand_a:int, operand_b:int, operator:string, correct_result:int, user_result:?int, is_correct:bool, response_ms:?int} $payload
+     * @param array{
+     *   operand_a:int, operand_b:int, operator:string, correct_result:int,
+     *   user_result:?int, is_correct:bool, response_ms:?int
+     * } $payload
      */
     private function storeAttempt(array $payload): ?string
     {

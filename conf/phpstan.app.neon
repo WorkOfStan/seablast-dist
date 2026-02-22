@@ -2,7 +2,9 @@ parameters:
     level: max
     excludePaths:
         analyseAndScan:
-            - ../cache/*
-            # (?)
+            # fnmatch pattern
+            #- ../cache/*
+            # more readable since PHPStan 1.11.10 meaning optional path, might not exist
+            - ../cache (?)
         analyse:
           - ../vendor
