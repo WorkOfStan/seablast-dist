@@ -58,7 +58,11 @@ class ArithmeticModel implements SeablastModelInterface
 
     private function isPost(): bool
     {
-        return strtoupper((string) ($this->superglobals->server['REQUEST_METHOD'] ?? 'GET')) === 'POST';
+        $method = $this->normalizeString($this->superglobals->server['REQUEST_METHOD'] ?? null);
+        if ($method === null) {
+            return false;
+        }
+        return strtoupper($method) === 'POST';
     }
 
     private function prepareNewOperation(): stdClass
@@ -80,13 +84,14 @@ class ArithmeticModel implements SeablastModelInterface
 
     private function handleSubmission(): stdClass
     {
+        /** @var array<string, mixed> $post */
         $post = $this->superglobals->post;
 
-        $operandA = $this->filterOperand($post['operand_a'] ?? null);
-        $operandB = $this->filterOperand($post['operand_b'] ?? null);
-        $operator = $this->filterOperator($post['operator'] ?? null);
-        $userResult = $this->filterUserResult($post['user_answer'] ?? null);
-        $duration = $this->computeDuration($post['started_at'] ?? null);
+        $operandA = $this->filterOperand($this->normalizeIntOrString($post['operand_a'] ?? null));
+        $operandB = $this->filterOperand($this->normalizeIntOrString($post['operand_b'] ?? null));
+        $operator = $this->filterOperator($this->normalizeString($post['operator'] ?? null));
+        $userResult = $this->filterUserResult($this->normalizeIntOrString($post['user_answer'] ?? null));
+        $duration = $this->computeDuration($this->normalizeIntOrString($post['started_at'] ?? null));
 
         $evaluation = new stdClass();
 
@@ -285,18 +290,66 @@ class ArithmeticModel implements SeablastModelInterface
                 $attempt = new stdClass();
                 $attempt->operandA = (int) $row['operand_a'];
                 $attempt->operandB = (int) $row['operand_b'];
-                $attempt->operatorSymbol = self::OPERATORS[$row['operator']] ?? $row['operator'];
+                $operatorRaw = $row['operator'] ?? null;
+                $attempt->operatorSymbol = $this->resolveOperatorSymbol($this->normalizeString($operatorRaw));
                 $attempt->correctResult = (int) $row['correct_result'];
                 $attempt->userResult = isset($row['user_result']) ? (int) $row['user_result'] : null;
                 $attempt->isCorrect = (bool) $row['is_correct'];
                 $attempt->responseMs = isset($row['response_ms']) ? (int) $row['response_ms'] : null;
-                $attempt->createdAt = new DateTimeImmutable($row['created_at']);
+                $attempt->createdAt = new DateTimeImmutable($this->normalizeCreatedAt($row['created_at'] ?? null));
                 $attempts[] = $attempt;
             }
             $result->free();
         }
 
         return $attempts;
+    }
+
+
+    /**
+     * @param mixed $value
+     * @return int|string|null
+     */
+    private function normalizeIntOrString($value)
+    {
+        if (is_int($value) || is_string($value)) {
+            return $value;
+        }
+        if (is_float($value)) {
+            return (string) $value;
+        }
+        return null;
+    }
+
+    /**
+     * @param mixed $value
+     * @return string|null
+     */
+    private function normalizeString($value)
+    {
+        return is_string($value) ? $value : null;
+    }
+
+    /**
+     * @param string|null $operator
+     */
+    private function resolveOperatorSymbol($operator): string
+    {
+        if ($operator === null) {
+            return '?';
+        }
+        return self::OPERATORS[$operator] ?? $operator;
+    }
+
+    /**
+     * @param mixed $value
+     */
+    private function normalizeCreatedAt($value): string
+    {
+        if (is_string($value) && $value !== '') {
+            return $value;
+        }
+        return 'now';
     }
 
     private function qualifiedTable(string $table): string
