@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### `Fixed` for any bugfixes
 
-- tighten `scaffoldify.php` PHPDoc types and remove a redundant replace-map assertion so PHPStan can validate the CLI code without false positives
+- tighten `scaffoldify.php` PHPDoc types, remove a redundant replace-map assertion, and normalize binary-file reads so PHPStan 1.x and 2.x both validate the CLI code without false positives
 
 ### `Security` in case of vulnerabilities
 

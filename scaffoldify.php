@@ -349,10 +349,10 @@ final class Scaffoldify
             return false;
         }
 
-        $chunk = @fread($fh, 8192);
+        $chunk = (string) @fread($fh, 8192);
         @fclose($fh);
 
-        if ($chunk === false || $chunk === '') {
+        if ($chunk === '') {
             return false;
         }
 
