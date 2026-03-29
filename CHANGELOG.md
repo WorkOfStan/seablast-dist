@@ -119,18 +119,23 @@ chore: GitHub Actions chaining
 feat: new application based on Seablast for PHP
 
 <!-- SCAFFOLDIFY:REMOVE-START dist-demo -->
+
 - new application based on Seablast for PHP/0.2.4
 - demonstrate API
 - demonstrate redirection
 <!-- SCAFFOLDIFY:REMOVE-END dist-demo -->
 
 [Unreleased]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.6...HEAD?w=1
+
 <!-- SCAFFOLDIFY:REMOVE-START dist-demo -->
+
 [0.1.6]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.5...v0.1.6?w=1
 [0.1.5]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.4...v0.1.5?w=1
 [0.1.4]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.3...v0.1.4?w=1
 [0.1.3]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.2...v0.1.3?w=1
 [0.1.2]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.1...v0.1.2?w=1
 [0.1.1]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1...v0.1.1?w=1
+
 <!-- SCAFFOLDIFY:REMOVE-END dist-demo -->
+
 [0.1]: https://github.com/WorkOfStan/seablast-dist/releases/tag/v0.1

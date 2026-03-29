@@ -41,6 +41,7 @@ If PHPStan reports `Constant APP_DIR not found.`, uncomment the relevant lines i
 ```
 
 <!-- SCAFFOLDIFY:REMOVE-START dist-demo -->
+
 ## Scaffold cleanup
 
 To strip the distribution demos and rename the project identity, use `scaffoldify.php`:
@@ -100,13 +101,13 @@ Example Apache HTTP-to-HTTPS redirect:
 
 ## Project layout
 
-| Directory | Description |
-| --------- | ----------- |
-| `.github/` | Automations and linting configuration |
-| `assets/` | Frontend assets placeholder; split into subdirectories as the app grows |
-| `cache/` | Latte cache and other runtime cache |
-| `conf/` | Seablast app config, local config templates, Phinx, PHPStan, migrations |
-| `log/` | Runtime logs |
-| `src/` | Application classes, especially `src/Models/` |
-| `tests/` | PHPUnit scaffold; currently almost empty |
-| `views/` | App Latte templates |
+| Directory  | Description                                                             |
+| ---------- | ----------------------------------------------------------------------- |
+| `.github/` | Automations and linting configuration                                   |
+| `assets/`  | Frontend assets placeholder; split into subdirectories as the app grows |
+| `cache/`   | Latte cache and other runtime cache                                     |
+| `conf/`    | Seablast app config, local config templates, Phinx, PHPStan, migrations |
+| `log/`     | Runtime logs                                                            |
+| `src/`     | Application classes, especially `src/Models/`                           |
+| `tests/`   | PHPUnit scaffold; currently almost empty                                |
+| `views/`   | App Latte templates                                                     |
