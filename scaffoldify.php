@@ -711,7 +711,4 @@ TXT;
     }
 }
 
-$args = isset($_SERVER['argv']) && is_array($_SERVER['argv'])
-    ? $_SERVER['argv']
-    : [];
-exit(App::main($args));
+exit(App::main($argv ?? []));
