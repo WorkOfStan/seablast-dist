@@ -3,12 +3,12 @@
 This repository is the public Seablast seed application. It is intentionally part boilerplate, part demo.
 Treat it as a starter project to clone and reshape, not as a finished domain app.
 
-## What this repo is
+## What this repository is
 
 - Purpose: show the minimal structure of a Seablast web app plus a few removable demos.
 - Core layering: `conf/` -> `src/Models/` -> `views/*.latte` -> `assets/` -> public web root.
 - Main package namespace is currently `Seablast\Distribution`; a real app is expected to rename that.
-- The repo already includes framework plumbing, Phinx setup, writable runtime directories, and CI automation.
+- The repository already includes framework plumbing, Phinx setup, writable runtime directories, and CI automation.
 
 ## Request and runtime flow
 
@@ -40,7 +40,7 @@ Treat it as a starter project to clone and reshape, not as a finished domain app
 - `cache/` and `log/` are writable runtime directories. `permissions.sh` documents the expected permissions.
 - `.github/workflows/polish-the-code.yml` and `.github/linters/` are part of the seed project's CI and linting.
 - `src/AppConstant.php` is intentionally empty and meant to hold app-specific keys and flags later.
-- `assets/` is currently just a placeholder directory with a README; real apps are expected to add their own
+- `assets/` is currently just a placeholder directory with a `README.md`; real apps are expected to add their own
   scripts, styles, and images there.
 - `seablast/i18n` is included and already wired into Phinx; your app may use it heavily, lightly, or not at all.
 
@@ -78,10 +78,10 @@ Treat it as a starter project to clone and reshape, not as a finished domain app
   it points to template `article`, but there is no local or inherited `article.latte`, so the route should be
   implemented or removed before use.
 - `views/nav.latte` still presents the project as `DIST` and links to demos. Rewrite it early in a real app.
-- `tests/` is currently scaffold-only. The repo has PHPUnit and CI wiring, but almost no custom application
+- `tests/` is currently scaffold-only. The repository has PHPUnit and CI wiring, but almost no custom application
   tests yet.
 
-## Repo structure
+## Repository structure
 
 - `.github/` automation and linting
 - `assets/` frontend assets placeholder
