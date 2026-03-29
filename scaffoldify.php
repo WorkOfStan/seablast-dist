@@ -1,6 +1,5 @@
 #!/usr/bin/env php
 <?php
-declare(strict_types=1);
 
 /**
  * scaffoldify.php
@@ -13,6 +12,15 @@ declare(strict_types=1);
  *
  * Compatible with PHP 7.2+ and 8.1+.
  */
+
+declare(strict_types=1);
+
+// phpcs:disable PSR1.Files.SideEffects.FoundWithSymbols,PSR1.Classes.ClassDeclaration.MissingNamespace,PSR1.Classes.ClassDeclaration.MultipleClasses -- CLI entrypoint intentionally mixes declarations and runtime execution and keeps helper classes together in one file.
+
+// todo ask also for database
+// todo add phinx with smart
+// todo change also     "Seablast\\Distribution\\"
+// todo remove guzzle
 
 const MARKER_LABEL = 'dist-demo';
 const START_TOKEN = 'SCAFFOLDIFY:REMOVE-START ' . MARKER_LABEL;

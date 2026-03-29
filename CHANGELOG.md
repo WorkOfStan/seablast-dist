@@ -17,20 +17,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### `Fixed` for any bugfixes
 
+- ignore the PHPCS side-effects sniff in `scaffoldify.php` because the file is an intentional CLI entrypoint
+- ignore the PHPCS missing-namespace and one-class-per-file sniffs in `scaffoldify.php` because the file is an intentional single-file CLI tool
 - tighten `scaffoldify.php` PHPDoc types, remove a redundant replace-map assertion, and normalize binary-file reads so PHPStan 1.x and 2.x both validate the CLI code without false positives
 
 ### `Security` in case of vulnerabilities
 
 <!-- SCAFFOLDIFY:REMOVE-START dist-demo -->
 
-## [0.1.6] - 2026-03-29
+## [0.1.6] - 2026-04-04
 
 feat: scaffoldify cleanup workflow and standardized dist-demo markers
 
 ### Added
 
 - add `scaffoldify.php` PHP CLI cleanup tool for turning the distribution into a starting app skeleton, add scaffold cleanup guidance into `README.md
-  - standardize removable shared-file blocks on `SCAFFOLDIFY:REMOVE-START dist-demo` / `SCAFFOLDIFY:REMOVE-END dist-demo`
+  - standardize removable shared-file blocks on `SCAFFOLDIFY:REMOVE-START` / `SCAFFOLDIFY:REMOVE-END` - botj with suffix ` dist-demo`
   - the scaffold replacement defaults to match the real repository, package, namespace, and author identity
 
 ### Security

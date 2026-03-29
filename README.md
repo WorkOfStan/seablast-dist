@@ -54,7 +54,7 @@ The script will:
 
 - delete the dedicated demo models and views: `src/Models/ArithmeticModel.php`, `src/Models/BlogModel.php`, `src/Models/ApiMirrorModel.php`, `src/Models/UseMirrorModel.php`, `src/Models/RedirModel.php`, `views/arithmetic.latte`, `views/blog-editable.latte`, `views/blog-readonly.latte`, and `views/mirror.latte`
 - delete the dedicated demo migrations: `conf/db/migrations/20250803081249_first_blog_posts.php` and `conf/db/migrations/20260222090000_create_arithmetic_attempts.php`
-- strip blocks marked with `SCAFFOLDIFY:REMOVE-START dist-demo` / `SCAFFOLDIFY:REMOVE-END dist-demo` from shared files such as `conf/app.conf.php`, `views/nav.latte`, `README.md`, `TODO.md`, `CHANGELOG.md`, and `views/home.latte`
+- strip blocks marked with `SCAFFOLDIFY:REMOVE-START` / `SCAFFOLDIFY:REMOVE-END` - both with suffix ` dist-demo` - from shared files such as `conf/app.conf.php`, `views/nav.latte`, `README.md`, `TODO.md`, `CHANGELOG.md`, and `views/home.latte`
 - prompt for replacements of the current distribution identity, including repository URLs, Composer package name, PHP namespace, short project slug, author name, author email, and `HOME DIST`
 - keep `scaffoldify.php` itself so you can review the changes and delete the tool manually later
 
