@@ -50,6 +50,10 @@ const REMOVE_PATHS = [
 
 final class Assert
 {
+    /**
+     * @param mixed $value
+     * @phpstan-assert non-empty-string $value
+     */
     public static function stringNotEmpty($value, string $message = 'Expected non-empty string'): void
     {
         if (!is_string($value) || trim($value) === '') {
@@ -57,6 +61,10 @@ final class Assert
         }
     }
 
+    /**
+     * @param mixed $value
+     * @phpstan-assert array<array-key, mixed> $value
+     */
     public static function isArray($value, string $message = 'Expected array'): void
     {
         if (!is_array($value)) {
@@ -160,10 +168,12 @@ final class Scaffoldify
     /** @var array<string, bool> */
     private $removeTargetLookup;
 
+    /**
+     * @param array<string, string> $replaceMap
+     */
     public function __construct(string $root, bool $dryRun, array $replaceMap)
     {
         Assert::stringNotEmpty($root, 'Root must be a non-empty string');
-        Assert::isArray($replaceMap, 'replaceMap must be an array');
 
         $canonicalRoot = realpath($root);
         if ($canonicalRoot === false || !is_dir($canonicalRoot)) {
@@ -189,7 +199,8 @@ final class Scaffoldify
     public function run(): int
     {
         Cli::out("== Scaffoldify (PHP CLI) ==\n");
-        Cli::out("Root: {$this->canonicalRoot}\n");
+        Cli::out("Root (input): {$this->root}\n");
+        Cli::out("Root (resolved): {$this->canonicalRoot}\n");
         Cli::out("Dry-run: " . ($this->dryRun ? 'yes' : 'no') . "\n");
         Cli::out("Marker tokens: " . START_TOKEN . ' / ' . END_TOKEN . "\n");
         Cli::out("Configured delete targets: " . count($this->removeTargets) . "\n\n");
@@ -531,6 +542,9 @@ final class Scaffoldify
 
 final class App
 {
+    /**
+     * @param array<int, string> $argv
+     */
     public static function main(array $argv): int
     {
         $args = self::parseArgs($argv);
@@ -547,6 +561,7 @@ final class App
     }
 
     /**
+     * @param array<int, string> $argv
      * @return array{root:string,dry_run:bool,interactive:bool}
      */
     private static function parseArgs(array $argv): array
@@ -574,7 +589,7 @@ final class App
                     Cli::err("Error: --root requires a value\n");
                     exit(2);
                 }
-                $root = (string) $argv[$i];
+                $root = $argv[$i];
                 continue;
             }
 
