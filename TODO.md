@@ -2,6 +2,8 @@
 
 All planned changes to this project are documented in this file.
 
+<!-- SCAFFOLDIFY:REMOVE-START dist-demo -->
+
 ## Demo
 
 - 231221, use SB_GET_ARGUMENT_ID and SB_GET_ARGUMENT_CODE to demonstrate GET parameter usage
@@ -20,3 +22,4 @@ All planned changes to this project are documented in this file.
 
 - 231207, CSRF token
 - 241205, add Seablast/Auth
+<!-- SCAFFOLDIFY:REMOVE-END dist-demo -->

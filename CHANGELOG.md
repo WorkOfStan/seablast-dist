@@ -19,6 +19,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### `Security` in case of vulnerabilities
 
+<!-- SCAFFOLDIFY:REMOVE-START dist-demo -->
+
+## [0.1.6] - 2026-03-29
+
+feat: scaffoldify cleanup workflow and standardized dist-demo markers
+
+### Added
+
+- add `scaffoldify.php` PHP CLI cleanup tool for turning the distribution into a starting app skeleton, add scaffold cleanup guidance into `README.md
+  - standardize removable shared-file blocks on `SCAFFOLDIFY:REMOVE-START dist-demo` / `SCAFFOLDIFY:REMOVE-END dist-demo`
+  - the scaffold replacement defaults to match the real repository, package, namespace, and author identity
+
+### Security
+
+- guard `scaffoldify.php` delete targets so configured removals cannot escape `--root`
+
 ## [0.1.5] - 2026-02-22
 
 feat: arithmetic trainer demo (model, Latte view, and persistence)
@@ -92,16 +108,25 @@ chore: GitHub Actions chaining
 
 - security: - Check: CKV2_GHA_1: "Ensure top-level permissions are not set to write-all" content read/write
 
+<!-- SCAFFOLDIFY:REMOVE-END dist-demo -->
+
 ## [0.1] - 2023-12-30
 
+feat: new application based on Seablast for PHP
+
+<!-- SCAFFOLDIFY:REMOVE-START dist-demo -->
 - new application based on Seablast for PHP/0.2.4
 - demonstrate API
 - demonstrate redirection
+<!-- SCAFFOLDIFY:REMOVE-END dist-demo -->
 
-[Unreleased]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.5...HEAD?w=1
+[Unreleased]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.6...HEAD?w=1
+<!-- SCAFFOLDIFY:REMOVE-START dist-demo -->
+[0.1.6]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.5...v0.1.6?w=1
 [0.1.5]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.4...v0.1.5?w=1
 [0.1.4]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.3...v0.1.4?w=1
 [0.1.3]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.2...v0.1.3?w=1
 [0.1.2]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.1...v0.1.2?w=1
 [0.1.1]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1...v0.1.1?w=1
+<!-- SCAFFOLDIFY:REMOVE-END dist-demo -->
 [0.1]: https://github.com/WorkOfStan/seablast-dist/releases/tag/v0.1

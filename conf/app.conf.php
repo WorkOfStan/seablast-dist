@@ -28,6 +28,7 @@ return static function (SeablastConfiguration $SBConfig): void {
                 'model' => '\Seablast\Distribution\Models\HomeModel',
             ]
         )
+        // SCAFFOLDIFY:REMOVE-START dist-demo
         ->setArrayArrayString(
             SeablastConstant::APP_MAPPING,
             '/article', // page slug, i.e. URL representation
@@ -96,6 +97,7 @@ return static function (SeablastConfiguration $SBConfig): void {
                 'model' => '\Seablast\Distribution\Models\RedirModel',
             ]
         )
+        // SCAFFOLDIFY:REMOVE-END dist-demo
         // todo add AuthConstant and test thorughly
         //->setString(
         //    AuthConstant::SOCIAL_LOGIN_SUCCESS_URL,
