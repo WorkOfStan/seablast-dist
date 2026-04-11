@@ -50,6 +50,7 @@ const REMOVE_PATHS = [
     'views/arithmetic.latte',
     'views/blog-editable.latte',
     'views/blog-readonly.latte',
+    'views/footer.latte',
     'views/item.latte',
     'views/mirror.latte',
     'conf/db/migrations/20250803081249_first_blog_posts.php',

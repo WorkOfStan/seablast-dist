@@ -1,5 +1,7 @@
 # seablast-dist maintainer notes
 
+<!-- SCAFFOLDIFY:REMOVE-START dist-demo -->
+
 This repository is the public Seablast seed application. It is intentionally part boilerplate, part demo.
 Treat it as a starter project to clone and reshape, not as a finished domain app.
 
@@ -9,6 +11,8 @@ Treat it as a starter project to clone and reshape, not as a finished domain app
 - Core layering: `conf/` -> `src/Models/` -> `views/*.latte` -> `assets/` -> public web root.
 - Main package namespace is currently `Seablast\Distribution`; a real app is expected to rename that.
 - The repository already includes framework plumbing, Phinx setup, writable runtime directories, and CI automation.
+
+<!-- SCAFFOLDIFY:REMOVE-END dist-demo -->
 
 ## Request and runtime flow
 
@@ -25,7 +29,9 @@ Treat it as a starter project to clone and reshape, not as a finished domain app
    - `redirectionUrl` with optional `httpCode` => redirect response
    - otherwise render the mapped Latte template
 7. App templates usually extend `../vendor/seablast/seablast/views/BlueprintWeb.latte`.
-8. Local `views/nav.latte` can populate the default layout navigation.
+8. Local `views/nav.latte` and `views/footer.latte` can populate the default layout navigation.
+
+<!-- SCAFFOLDIFY:REMOVE-START dist-demo -->
 
 ## Keep as boilerplate
 
@@ -81,6 +87,8 @@ Treat it as a starter project to clone and reshape, not as a finished domain app
 - `tests/` is currently scaffold-only. The repository has PHPUnit and CI wiring, but almost no custom application
   tests yet.
 
+<!-- SCAFFOLDIFY:REMOVE-END dist-demo -->
+
 ## Repository structure
 
 - `.github/` automation and linting
@@ -105,6 +113,8 @@ Treat it as a starter project to clone and reshape, not as a finished domain app
   `conf/phpstan.webmozart-assert.neon`.
 - `permissions.sh` documents the expected write permissions for `cache/` and `log/`.
 
+<!-- SCAFFOLDIFY:REMOVE-START dist-demo -->
+
 ## Guidance when turning this into a real app
 
 - Rename namespace and package metadata away from `Seablast\Distribution`.
@@ -113,3 +123,5 @@ Treat it as a starter project to clone and reshape, not as a finished domain app
 - Keep the bootstrap and deployment plumbing unless you have a deliberate replacement for it.
 - Put app-specific flags and keys into `src/AppConstant.php`.
 - Add real PHPUnit coverage; do not rely on the current scaffold-only `tests/` directory.
+
+<!-- SCAFFOLDIFY:REMOVE-END dist-demo -->
