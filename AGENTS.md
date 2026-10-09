@@ -120,6 +120,7 @@ Treat it as a starter project to clone and reshape, not as a finished domain app
 - Rename namespace and package metadata away from `Seablast\Distribution`.
 - Replace the starter home page and navigation early so the project stops presenting itself as a distribution demo.
 - Run `php scaffoldify.php` to remove demo-only files and marked `dist-demo` blocks, then rewrite the remaining starter placeholders.
+- Expect scaffoldify to remove demo Composer dependencies (currently Guzzle); run `composer update` afterward to synchronize dependencies.
 - Keep the bootstrap and deployment plumbing unless you have a deliberate replacement for it.
 - Put app-specific flags and keys into `src/AppConstant.php`.
 - Add real PHPUnit coverage; do not rely on the current scaffold-only `tests/` directory.

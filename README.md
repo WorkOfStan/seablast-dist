@@ -21,8 +21,8 @@ Seablast boilerplate with a few removable demo routes.
    Use collation `utf8_general_ci` or preferably `utf8mb3_general_ci`.
 2. Rename the distribution namespace and package metadata to your own app.
 3. Run [./blast.sh](./blast.sh) or
-   [./vendor/seablast/seablast/blast.sh](https://github.com/WorkOfStan/seablast/blob/v0.2.10.1/blast.sh).
-4. On first run, the script creates:
+   [./vendor/seablast/seablast/blast.sh](https://github.com/WorkOfStan/seablast/blob/v0.2.18/blast.sh).
+4. On first two runs, the script creates:
    - `conf/phinx.local.php` from [conf/phinx.dist.php](conf/phinx.dist.php)
    - `conf/app.conf.local.php` from [conf/app.conf.dist.php](conf/app.conf.dist.php)
 5. Edit those local files with your database names, credentials, selected Phinx environment, and any app-specific
@@ -51,13 +51,24 @@ php scaffoldify.php --dry-run
 php scaffoldify.php
 ```
 
+Interactive runs save the confirmed answers in `cache/scaffoldify-replacements.json`. Later dry-runs and real runs
+offer those answers as prompt defaults, including each extra replacement pair. The file is local, ignored by Git,
+retained after real runs, and can be deleted manually when its defaults are no longer useful. A dry-run does not
+change project content, but it may create or update this replacement-default cache.
+
 The script will:
 
 - delete the dedicated demo models and views: `src/Models/ArithmeticModel.php`, `src/Models/BlogModel.php`, `src/Models/ApiMirrorModel.php`, `src/Models/UseMirrorModel.php`, `src/Models/RedirModel.php`, `views/arithmetic.latte`, `views/blog-editable.latte`, `views/blog-readonly.latte`, and `views/mirror.latte`
 - delete the dedicated demo migrations: `conf/db/migrations/20250803081249_first_blog_posts.php` and `conf/db/migrations/20260222090000_create_arithmetic_attempts.php`
 - strip blocks marked with `SCAFFOLDIFY:REMOVE-START` / `SCAFFOLDIFY:REMOVE-END` - both with suffix `dist-demo` - from shared files such as `conf/app.conf.php`, `views/nav.latte`, `README.md`, `TODO.md`, `CHANGELOG.md`, and `views/home.latte`
 - prompt for replacements of the current distribution identity, including repository URLs, Composer package name, PHP namespace, short project slug, author name, author email, and `HOME DIST`
-- keep `scaffoldify.php` itself so you can review the changes and delete the tool manually later
+- keep `scaffoldify.php` itself so you can review the changes and **delete the tool manually later**
+- remove demo dependencies from `require` and `require-dev` in `composer.json`, currently `guzzlehttp/guzzle`, while keeping Phinx and i18n
+
+Dependency cleanup also runs with `--no-interactive`; `--dry-run` previews the removals. After a real run changes
+dependencies, run `composer update` in the target project to synchronize the local lock file and installed packages.
+Scaffoldify does not run Composer. Missing manifests and already absent packages are harmless; malformed manifests
+and manifest symbolic links stop cleanup before project files are changed.
 
 After scaffoldify, rewrite the starter home scaffold in `src/Models/HomeModel.php` and `views/home.latte`, and decide whether `views/item.latte` plus the `/item` route still belong in your app.
 

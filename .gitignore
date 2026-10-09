@@ -1,34 +1,28 @@
-#disable project relevant content
-# media/*
-# items/*
-
-#disable temporary and log files and dirs
+# Ignore temporary and log files and dirs
 log/*
 cache/*
 !/log/.htaccess
-/\.sass-cache/
-/\.php_cs\.cache
-/\.php-cs-fixer\.cache
-/\.phpunit\.result\.cache
+/.sass-cache/
+/.*.cache
 
-#disable private local files
-*.local.php
-*.local.yml
+# Ignore private local files
+*.local.*
 
-#disable npm & composer-managed libraries
+# Ignore npm & composer-managed libraries
 /vendor/
-/node_modules/*
-#disable composer lock file
+/node_modules/
+
+# Ignore Composer lock file to support environments running different PHP versions
 /composer.lock
 /package-lock.json
 
-#disable IDE files
+# Ignore IDE files
 /nbproject/
 /.idea/
 
-#disable db tools
+# Ignore db tools
 adminer*.php
 
-#disable image win/mac auxiliary files
+# Ignore image win/mac auxiliary files
 thumbs.db
 __MACOSX/

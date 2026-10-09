@@ -11,8 +11,9 @@ declare(strict_types=1);
 use Seablast\Seablast\SeablastConfiguration;
 use Seablast\Seablast\SeablastConstant;
 
+//use Seablast\Auth\AuthConstant;
 //use Seablast\Distribution\Models\AppConstant;
-
+        
 return static function (SeablastConfiguration $SBConfig): void {
     $SBConfig->flag
         //->deactivate(SeablastConstant::FLAG_WEB_RUNNING) // doesn't have an effect on localhost
@@ -31,5 +32,6 @@ return static function (SeablastConfiguration $SBConfig): void {
         //    SeablastConstant::SB_WEB_FORCE_ASSET_VERSION,
         //    153 + ($SBConfig->getInt(SeablastConstant::SB_WEB_FORCE_ASSET_VERSION))
         //)
+        //->setString(AuthConstant::FACEBOOK_APP_SECRET, '')
     ;
 };

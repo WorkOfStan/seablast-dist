@@ -17,15 +17,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### `Fixed` for any bugfixes
 
-- ignore the PHPCS side-effects sniff in `scaffoldify.php` because the file is an intentional CLI entrypoint
-- ignore the PHPCS missing-namespace and one-class-per-file sniffs in `scaffoldify.php` because the file is an intentional single-file command-line tool
-- tighten `scaffoldify.php` PHPDoc types, remove a redundant replace-map assertion, and normalize binary-file reads so PHPStan 1.x and 2.x both validate the CLI code without false positives
-
 ### `Security` in case of vulnerabilities
 
 <!-- SCAFFOLDIFY:REMOVE-START dist-demo -->
 
-## [0.1.6] - 2026-04-04
+## [0.1.6] - 2026-10-11
 
 feat: scaffoldify cleanup workflow and standardized dist-demo markers
 
@@ -34,10 +30,27 @@ feat: scaffoldify cleanup workflow and standardized dist-demo markers
 - add `scaffoldify.php` PHP CLI cleanup tool for turning the distribution into a starting app skeleton, add scaffold cleanup guidance into `README.md
   - standardize removable shared-file blocks on `SCAFFOLDIFY:REMOVE-START` / `SCAFFOLDIFY:REMOVE-END` - botj with suffix `dist-demo`
   - the scaffold replacement defaults to match the real repository, package, namespace, and author identity
+- persist confirmed scaffoldify replacement values locally so later dry-runs and real runs offer them as defaults
+- remove demo Composer dependencies during scaffold cleanup, preview removals in dry-runs, validate manifests before cleanup, and report the Composer synchronization command
+
+### Changed
+
+- bump blast.sh to 0.2.18
+- bump tools used in polish-the-code.yml
+
+### Fixed
+
+- ignore the PHPCS side-effects sniff in `scaffoldify.php` because the file is an intentional CLI entrypoint
+- ignore the PHPCS missing-namespace and one-class-per-file sniffs in `scaffoldify.php` because the file is an intentional single-file command-line tool
+- tighten `scaffoldify.php` PHPDoc types, remove a redundant replace-map assertion, and normalize binary-file reads so PHPStan 1.x and 2.x both validate the CLI code without false positives
+- replace escaped Composer namespace prefixes from the configured PHP namespace during scaffold cleanup
 
 ### Security
 
 - guard `scaffoldify.php` delete targets so configured removals cannot escape `--root`
+- Temporarily allow `GHSA-vjqc-q4mp-2rvf` / `CVE-2026-79752` for `cakephp/database` to retain PHP 7.3 compatibility.
+  - The vulnerability affects several `FunctionsBuilder` methods when user-controlled values are passed to SQL function parameters.
+  - This exception should be removed once CakePHP provides a patched release compatible with PHP 7.3, or when PHP is upgraded to a version supported by the currently patched CakePHP releases.
 
 ## [0.1.5] - 2026-02-22
 
