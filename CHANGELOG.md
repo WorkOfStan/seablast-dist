@@ -136,6 +136,7 @@ feat: new application based on Seablast for PHP
 - new application based on Seablast for PHP/0.2.4
 - demonstrate API
 - demonstrate redirection
+
 <!-- SCAFFOLDIFY:REMOVE-END dist-demo -->
 
 [Unreleased]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.6...HEAD?w=1

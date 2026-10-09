@@ -22,4 +22,5 @@ All planned changes to this project are documented in this file.
 
 - 231207, CSRF token
 - 241205, add Seablast/Auth
+
 <!-- SCAFFOLDIFY:REMOVE-END dist-demo -->
