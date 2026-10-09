@@ -66,7 +66,7 @@ The script will:
 - remove demo dependencies from `require` and `require-dev` in `composer.json`, currently `guzzlehttp/guzzle`, while keeping Phinx and i18n
 
 Dependency cleanup also runs with `--no-interactive`; `--dry-run` previews the removals. After a real run changes
-dependencies, run `composer update` in the target project to synchronize the local lock file and installed packages.
+dependencies, run `composer update` in the target project to synchronize the local lockfile and installed packages.
 Scaffoldify does not run Composer. Missing manifests and already absent packages are harmless; malformed manifests
 and manifest symbolic links stop cleanup before project files are changed.
 
