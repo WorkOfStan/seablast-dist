@@ -1073,7 +1073,6 @@ TXT;
             Cli::err("Error: " . $exception->getMessage() . "\n");
             return 2;
         }
-
     }
 
     /**

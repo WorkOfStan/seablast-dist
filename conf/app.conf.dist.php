@@ -13,7 +13,7 @@ use Seablast\Seablast\SeablastConstant;
 
 //use Seablast\Auth\AuthConstant;
 //use Seablast\Distribution\Models\AppConstant;
-        
+
 return static function (SeablastConfiguration $SBConfig): void {
     $SBConfig->flag
         //->deactivate(SeablastConstant::FLAG_WEB_RUNNING) // doesn't have an effect on localhost
