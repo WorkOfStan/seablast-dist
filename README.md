@@ -19,7 +19,7 @@ Seablast boilerplate with a few removable demo routes.
 
 1. Create a development database and a separate testing database.
    Use collation `utf8_general_ci` or preferably `utf8mb3_general_ci`.
-2. Rename the distribution namespace and package metadata to your own app.
+2. Rename the distribution namespace and package metadata to your own app. (See `Scaffold cleanup` below.)
 3. Run [./blast.sh](./blast.sh) or
    [./vendor/seablast/seablast/blast.sh](https://github.com/WorkOfStan/seablast/blob/v0.2.18/blast.sh).
 4. On first two runs, the script creates:
@@ -62,15 +62,15 @@ The script will:
 - delete the dedicated demo migrations: `conf/db/migrations/20250803081249_first_blog_posts.php` and `conf/db/migrations/20260222090000_create_arithmetic_attempts.php`
 - strip blocks marked with `SCAFFOLDIFY:REMOVE-START` / `SCAFFOLDIFY:REMOVE-END` - both with suffix `dist-demo` - from shared files such as `conf/app.conf.php`, `views/nav.latte`, `README.md`, `TODO.md`, `CHANGELOG.md`, and `views/home.latte`
 - prompt for replacements of the current distribution identity, including repository URLs, Composer package name, PHP namespace, short project slug, author name, author email, and `HOME DIST`
+- remove demo dependencies from `require` and `require-dev` in `composer.json`, currently `guzzlehttp/guzzle`, while keeping Phinx and Seablast I18n
 - keep `scaffoldify.php` itself so you can review the changes and **delete the tool manually later**
-- remove demo dependencies from `require` and `require-dev` in `composer.json`, currently `guzzlehttp/guzzle`, while keeping Phinx and i18n
 
 Dependency cleanup also runs with `--no-interactive`; `--dry-run` previews the removals. After a real run changes
-dependencies, run `composer update` in the target project to synchronize the local lockfile and installed packages.
+dependencies, run `blast.sh` (which invokes `composer update`) in the target project to synchronize the local lockfile and installed packages.
 Scaffoldify does not run Composer. Missing manifests and already absent packages are harmless; malformed manifests
 and manifest symbolic links stop cleanup before project files are changed.
 
-After scaffoldify, rewrite the starter home scaffold in `src/Models/HomeModel.php` and `views/home.latte`, and decide whether `views/item.latte` plus the `/item` route still belong in your app.
+After scaffoldify, rewrite the starter home scaffold in `src/Models/HomeModel.php` and `views/home.latte`, and start adding models, views and routes.
 
 ## Included demos
 

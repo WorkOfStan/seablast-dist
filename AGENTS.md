@@ -31,6 +31,16 @@ Treat it as a starter project to clone and reshape, not as a finished domain app
 7. App templates usually extend `../vendor/seablast/seablast/views/BlueprintWeb.latte`.
 8. Local `views/nav.latte` and `views/footer.latte` can populate the default layout navigation.
 
+## Application architecture requirements
+
+- App code must not introduce a custom front controller or controller layer. Use the Seablast framework's
+  existing request flow and put app behavior in models and route configuration.
+- New models must implement `SeablastModelInterface`, even if older demo models use looser conventions.
+- `.htaccess` must route app requests to `vendor/seablast/seablast/index.php` and allow web access only to
+  the required Seablast vendor path; keep all other vendor paths blocked.
+- If changing the selected template is really important, `$controller->mapping['template']` may be modified
+  in the existing Seablast controller. This exception does not permit adding an app controller layer.
+
 <!-- SCAFFOLDIFY:REMOVE-START dist-demo -->
 
 ## Keep as boilerplate
