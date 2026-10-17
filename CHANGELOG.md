@@ -28,7 +28,7 @@ feat: scaffoldify cleanup workflow and standardized dist-demo markers
 ### Added
 
 - add `scaffoldify.php` PHP CLI cleanup tool for turning the distribution into a starting app skeleton, add scaffold cleanup guidance into `README.md
-  - standardize removable shared-file blocks on `SCAFFOLDIFY:REMOVE-START` / `SCAFFOLDIFY:REMOVE-END` - botj with suffix `dist-demo`
+  - standardize removable shared-file blocks on `SCAFFOLDIFY:REMOVE-START` / `SCAFFOLDIFY:REMOVE-END` - both with suffix `dist-demo`
   - the scaffold replacement defaults to match the real repository, package, namespace, and author identity
 - persist confirmed scaffoldify replacement values locally so later dry-runs and real runs offer them as defaults
 - remove demo Composer dependencies during scaffold cleanup, preview removals in dry-runs, validate manifests before cleanup, and report the Composer synchronization command
