@@ -21,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- SCAFFOLDIFY:REMOVE-START dist-demo -->
 
-## [0.1.6] - 2026-10-11
+## [0.1.6] - 2026-10-17
 
 feat: scaffoldify cleanup workflow and standardized dist-demo markers
 
@@ -38,6 +38,10 @@ feat: scaffoldify cleanup workflow and standardized dist-demo markers
 - bump blast.sh to 0.2.18
 - bump tools used in polish-the-code.yml
 - Clarify app architecture requirements in `AGENTS.md`, including framework routing, model interfaces, vendor access, and the template mapping exception.
+
+### Changed
+
+- Clarify that interactive scaffoldify dry-runs save replacement defaults and document the no-write preview command.
 
 ### Fixed
 

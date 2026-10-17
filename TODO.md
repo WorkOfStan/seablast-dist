@@ -16,7 +16,7 @@ All planned changes to this project are documented in this file.
   - // /Seablast-dist example block
   - Hledá jen ten string na řádce, tak způsob komentování je fuk
 - 260222, /blog-e - editable for logged-in users
-- 260222, ArithmeticModel.php and its reference in nav.latte and config gets removed by clean-slate.sh
+- 261011, After demo cleanup, HomeModel remains the application’s main example, but it does not implement SeablastModelInterface and uses a parameterless constructor. The runtime currently tolerates this, so the concern is consistency of guidance rather than a demonstrated runtime failure. Recommend making the retained model follow the same constructor and interface contract taught in the guide.
 
 ## Security
 

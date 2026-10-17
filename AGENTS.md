@@ -119,8 +119,7 @@ Treat it as a starter project to clone and reshape, not as a finished domain app
   and test data do not collide with development data.
 - `phpunit.xml` is present and CI runs PHPUnit, but meaningful coverage only appears once the app adds real tests.
 - `./blast.sh phpstan` installs extra PHPStan packages on demand, and `./blast.sh phpstan-remove` removes them.
-- If PHPStan reports `Constant APP_DIR not found.`, uncomment the relevant lines in
-  `conf/phpstan.webmozart-assert.neon`.
+- If PHPStan reports `Constant APP_DIR not found.`, uncomment the relevant lines in `conf/phpstan.webmozart-assert.neon`.
 - `permissions.sh` documents the expected write permissions for `cache/` and `log/`.
 
 <!-- SCAFFOLDIFY:REMOVE-START dist-demo -->
@@ -129,8 +128,11 @@ Treat it as a starter project to clone and reshape, not as a finished domain app
 
 - Rename namespace and package metadata away from `Seablast\Distribution`.
 - Replace the starter home page and navigation early so the project stops presenting itself as a distribution demo.
+- Run `php scaffoldify.php --dry-run` to preview cleanup with interactive identity replacements. It does not apply the previewed cleanup, but confirmed prompt values are saved to `cache/scaffoldify-replacements.json` for later
+  runs.  An agent can pre-populate `cache/scaffoldify-replacements.json` to simplify app setup.
+- Run `php scaffoldify.php --dry-run --no-interactive` for a completely read-only preview. It neither reads nor writes the replacement cache and does not preview identity replacements.
 - Run `php scaffoldify.php` to remove demo-only files and marked `dist-demo` blocks, then rewrite the remaining starter placeholders.
-- Expect scaffoldify to remove demo Composer dependencies (currently Guzzle); run `composer update` afterward to synchronize dependencies.
+- Expect scaffoldify to remove demo Composer dependencies (currently Guzzle); run `blast.sh` (which invokes `composer update`) afterward to synchronize dependencies.
 - Keep the bootstrap and deployment plumbing unless you have a deliberate replacement for it.
 - Put app-specific flags and keys into `src/AppConstant.php`.
 - Add real PHPUnit coverage; do not rely on the current scaffold-only `tests/` directory.

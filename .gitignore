@@ -3,7 +3,7 @@ log/*
 cache/*
 !/log/.htaccess
 /.sass-cache/
-/.*.cache
+.*.cache
 
 # Ignore private local files
 *.local.*

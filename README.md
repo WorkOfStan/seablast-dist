@@ -19,7 +19,9 @@ Seablast boilerplate with a few removable demo routes.
 
 1. Create a development database and a separate testing database.
    Use collation `utf8_general_ci` or preferably `utf8mb3_general_ci`.
+<!-- SCAFFOLDIFY:REMOVE-START dist-demo -->
 2. Rename the distribution namespace and package metadata to your own app. (See `Scaffold cleanup` below.)
+<!-- SCAFFOLDIFY:REMOVE-END dist-demo -->
 3. Run [./blast.sh](./blast.sh) or
    [./vendor/seablast/seablast/blast.sh](https://github.com/WorkOfStan/seablast/blob/v0.2.18/blast.sh).
 4. On first two runs, the script creates:
@@ -48,13 +50,19 @@ To strip the distribution demos and rename the project identity, use `scaffoldif
 
 ```sh
 php scaffoldify.php --dry-run
+php scaffoldify.php --dry-run --no-interactive
 php scaffoldify.php
 ```
 
-Interactive runs save the confirmed answers in `cache/scaffoldify-replacements.json`. Later dry-runs and real runs
-offer those answers as prompt defaults, including each extra replacement pair. The file is local, ignored by Git,
-retained after real runs, and can be deleted manually when its defaults are no longer useful. A dry-run does not
-change project content, but it may create or update this replacement-default cache.
+Interactive runs save the confirmed answers in `cache/scaffoldify-replacements.json`, including interactive
+`--dry-run` runs. Later dry-runs and real runs offer those answers as prompt defaults, including each extra
+replacement pair. The file is local, ignored by Git, retained after real runs, and can be deleted manually when its
+defaults are no longer useful.
+
+`--dry-run` never applies the previewed cleanup, but its interactive prompts may create or update the
+replacement-default cache. For a completely read-only preview, use `--dry-run --no-interactive`. That mode neither
+reads nor writes the cache and previews removal of demo blocks, files, and Composer dependencies without identity
+replacements.
 
 The script will:
 

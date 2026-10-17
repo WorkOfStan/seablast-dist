@@ -13,10 +13,11 @@ use Seablast\Seablast\SeablastConstant;
 
 //use Seablast\Auth\AuthConstant;
 //use Seablast\Distribution\Models\AppConstant;
+//use Seablast\I18n\I18nConstant;
 
 return static function (SeablastConfiguration $SBConfig): void {
     $SBConfig->flag
-        //->deactivate(SeablastConstant::FLAG_WEB_RUNNING) // doesn't have an effect on localhost
+        //->deactivate(SeablastConstant::FLAG_WEB_RUNNING) // doesn't affect localhost
         //->activate(SeablastConstant::FLAG_DEBUG_JSON) // JSON would be displayed directly with Tracy
         ->activate(SeablastConstant::ADMIN_MAIL_ENABLED) // live on server
         ->activate(SeablastConstant::USER_MAIL_ENABLED)  // live on server
