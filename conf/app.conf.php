@@ -15,6 +15,7 @@ return static function (SeablastConfiguration $SBConfig): void {
         ->activate(SeablastConstant::FLAG_WEB_RUNNING)
     ;
     $SBConfig
+        // Force update of external CSS and JavaScript files. The literal is expected in Latte.
         ->setInt(SeablastConstant::SB_WEB_FORCE_ASSET_VERSION, 1)
         ->setArrayArrayString(
             SeablastConstant::APP_MAPPING,
@@ -28,6 +29,7 @@ return static function (SeablastConfiguration $SBConfig): void {
                 'model' => '\Seablast\Distribution\Models\HomeModel',
             ]
         )
+        // SCAFFOLDIFY:REMOVE-START dist-demo
         ->setArrayArrayString(
             SeablastConstant::APP_MAPPING,
             '/article', // page slug, i.e. URL representation
@@ -96,6 +98,7 @@ return static function (SeablastConfiguration $SBConfig): void {
                 'model' => '\Seablast\Distribution\Models\RedirModel',
             ]
         )
+        // SCAFFOLDIFY:REMOVE-END dist-demo
         // todo add AuthConstant and test thorughly
         //->setString(
         //    AuthConstant::SOCIAL_LOGIN_SUCCESS_URL,

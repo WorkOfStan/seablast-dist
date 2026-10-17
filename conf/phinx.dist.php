@@ -2,15 +2,23 @@
 
 declare(strict_types=1);
 
+$migrations = ['%%PHINX_CONFIG_DIR%%/db/migrations']; // the default path
+// Note: if phinx create selection gets stuck, it may help to temporarily hide the other migration paths
+foreach (
+    [
+        'seablast/auth/conf/db/migrations',
+        'seablast/i18n/conf/db/migrations',
+    ] as $path
+) {
+    if (is_dir(__DIR__ . '/../vendor/' . $path)) {
+        $migrations[] = '%%PHINX_CONFIG_DIR%%/../vendor/' . $path;
+    }
+}
+
 return
 [
     'paths' => [
-        'migrations' => [
-            '%%PHINX_CONFIG_DIR%%/db/migrations',
-            // comment out following lines if phinx create selection gets stuck
-            //'%%PHINX_CONFIG_DIR%%/../vendor/seablast/auth/conf/db/migrations',
-            '%%PHINX_CONFIG_DIR%%/../vendor/seablast/i18n/conf/db/migrations',
-        ],
+        'migrations' => $migrations,
         'seeds' => '%%PHINX_CONFIG_DIR%%/db/seeds'
     ],
     'environments' => [

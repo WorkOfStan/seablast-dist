@@ -1,63 +1,136 @@
 # seablast-dist
 
-Distribution of a seed application for `Seablast for PHP`
+Distribution and seed project for `Seablast for PHP`.
 
-## Deployment
+This repository is meant to be copied and reshaped into a real app. It intentionally combines reusable
+Seablast boilerplate with a few removable demo routes.
 
-Create database with `Collation=utf8_general_ci` or rather `utf8mb3_general_ci` (create also separate testing database so that phinxlog migration_name doesn't overlap)
+## What this repository gives you
 
-Before starting to develop on this boilerplate, rename the namespace according to your app.
+- route mapping in `conf/app.conf.php`
+- model-to-view, API, and redirect wiring through Seablast
+- bootstrap scripts and local config templates
+- Phinx migrations for development and testing databases
+- Apache rewrite rules and protected folders
+- GitHub Actions and linting setup
+- optional `seablast/i18n` integration already present in Composer and Phinx
 
-Run [./blast.sh](./blast.sh) or [./vendor/seablast/seablast/blast.sh](https://github.com/WorkOfStan/seablast/blob/v0.2.10.1/blast.sh) to
+## Quick start
 
-- create `conf/phinx.local.php` based on [conf/phinx.dist.php](conf/phinx.dist.php) including the name of the database (and testing database) created above
-- create `conf/app.conf.local.php` based on [conf/app.conf.dist.php](conf/app.conf.dist.php) including the phinx environment to be used and change any settings you like. (OPTIONAL)
+1. Create a development database and a separate testing database.
+   Use collation `utf8_general_ci` or preferably `utf8mb3_general_ci`.
 
-Edit these two configuration files; then re-run blast.sh
+<!-- SCAFFOLDIFY:REMOVE-START dist-demo -->
 
-Note: the current configuration is in the `conf/phinx.local.php` so that it is automatically NOT commited to Git
+2. Rename the distribution namespace and package metadata to your own app. (See `Scaffold cleanup` below.)
 
-If PHPStan reports `Constant APP_DIR not found.` error, just uncomment lines in [conf/phpstan.webmozart-assert.neon](conf/phpstan.webmozart-assert.neon).
+<!-- SCAFFOLDIFY:REMOVE-END dist-demo -->
+
+3. Run [./blast.sh](./blast.sh) or
+   [./vendor/seablast/seablast/blast.sh](https://github.com/WorkOfStan/seablast/blob/v0.2.18/blast.sh).
+4. On first two runs, the script creates:
+   - `conf/phinx.local.php` from [conf/phinx.dist.php](conf/phinx.dist.php)
+   - `conf/app.conf.local.php` from [conf/app.conf.dist.php](conf/app.conf.dist.php)
+5. Edit those local files with your database names, credentials, selected Phinx environment, and any app-specific
+   overrides.
+6. Run `./blast.sh` again to install or update dependencies, run Phinx migrations for development and testing,
+   and execute PHPUnit.
+
+Local configuration lives in `conf/*.local.php` and is intentionally ignored by Git.
+
+If PHPStan reports `Constant APP_DIR not found.`, uncomment the relevant lines in
+[conf/phpstan.webmozart-assert.neon](conf/phpstan.webmozart-assert.neon).
 
 ```sh
-# For all the deployment and development options, run
+# Show all deployment and development options
 ./vendor/seablast/seablast/blast.sh -?
 ```
 
-### Folders, where web can write
+<!-- SCAFFOLDIFY:REMOVE-START dist-demo -->
 
-- cache and log (and also e.g. app specific uploads)
-- rights: 2775
-- owner: server user, e.g. composerit
-- group: web user, e.g. www-data
-- run [permissions.sh](permissions.sh) to set up these permissions
-- upload_max_filesize in php.ini set to 8M
+## Scaffold cleanup
 
-### Security
+To strip the distribution demos and rename the project identity, use `scaffoldify.php`:
 
-- enforcing HTTP to HTTPS MUST happen on the server-side, e.g. like this in `/etc/apache2/sites-enabled/www.plysonika.cz.conf`
+```sh
+php scaffoldify.php --dry-run
+php scaffoldify.php --dry-run --no-interactive
+php scaffoldify.php
+```
+
+Interactive runs save the confirmed answers in `cache/scaffoldify-replacements.json`, including interactive
+`--dry-run` runs. Later dry-runs and real runs offer those answers as prompt defaults, including each extra
+replacement pair. The file is local, ignored by Git, retained after real runs, and can be deleted manually when its
+defaults are no longer useful.
+
+`--dry-run` never applies the previewed cleanup, but its interactive prompts may create or update the
+replacement-default cache. For a completely read-only preview, use `--dry-run --no-interactive`. That mode neither
+reads nor writes the cache and previews removal of demo blocks, files, and Composer dependencies without identity
+replacements.
+
+The script will:
+
+- delete the dedicated demo models and views: `src/Models/ArithmeticModel.php`, `src/Models/BlogModel.php`, `src/Models/ApiMirrorModel.php`, `src/Models/UseMirrorModel.php`, `src/Models/RedirModel.php`, `views/arithmetic.latte`, `views/blog-editable.latte`, `views/blog-readonly.latte`, and `views/mirror.latte`
+- delete the dedicated demo migrations: `conf/db/migrations/20250803081249_first_blog_posts.php` and `conf/db/migrations/20260222090000_create_arithmetic_attempts.php`
+- strip blocks marked with `SCAFFOLDIFY:REMOVE-START` / `SCAFFOLDIFY:REMOVE-END` - both with suffix `dist-demo` - from shared files such as `conf/app.conf.php`, `views/nav.latte`, `README.md`, `TODO.md`, `CHANGELOG.md`, and `views/home.latte`
+- prompt for replacements of the current distribution identity, including repository URLs, Composer package name, PHP namespace, short project slug, author name, author email, and `HOME DIST`
+- remove demo dependencies from `require` and `require-dev` in `composer.json`, currently `guzzlehttp/guzzle`, while keeping Phinx and Seablast I18n
+- keep `scaffoldify.php` itself so you can review the changes and **delete the tool manually later**
+
+Dependency cleanup also runs with `--no-interactive`; `--dry-run` previews the removals. After a real run changes
+dependencies, run `blast.sh` (which invokes `composer update`) in the target project to synchronize the local lockfile and installed packages.
+Scaffoldify does not run Composer. Missing manifests and already absent packages are harmless; malformed manifests
+and manifest symbolic links stop cleanup before project files are changed.
+
+After scaffoldify, rewrite the starter home scaffold in `src/Models/HomeModel.php` and `views/home.latte`, and start adding models, views and routes.
+
+## Included demos
+
+This seed project ships with a few examples that show Seablast patterns in practice and can be removed in a real app:
+
+- `/blog-e` and `/blog-r`: localised blog demo built on top of `seablast/i18n`
+- `/api/mirror` and `/use-mirror`: simple JSON API plus a server-side Guzzle caller
+- `/redir`: redirect example
+- `/arithmetic`: form + Latte + DB persistence example
+- `/`: placeholder homepage scaffold
+
+<!-- SCAFFOLDIFY:REMOVE-END dist-demo -->
+
+## Writable directories
+
+- `cache/` and `log/` must be writable by the web server
+- app-specific upload directories should follow the same pattern
+- permissions are expected to be `2775`
+- owner should be the server user, group should be the web user
+- run [permissions.sh](permissions.sh) to apply the documented permissions
+- keep `upload_max_filesize` in `php.ini` aligned with your app needs
+
+## Security and web server notes
+
+- HTTPS enforcement should happen at the web server or reverse proxy level.
+- `.htaccess` rewrites app requests to the Seablast front controller and blocks direct web access to folders such
+  as `cache/`, `conf/`, `log/`, `src/`, `tests/`, and `views/`.
+- `.htaccess` also hides repository metadata and text/config files such as `*.md`, `*.sh`, and `composer.*`.
+
+Example Apache HTTP-to-HTTPS redirect:
 
 ```htaccess
 <VirtualHost *:80>
         RewriteEngine On
         RewriteCond %{REQUEST_URI} !^/server-status.*
         RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+</VirtualHost>
 ```
 
-## Examples
+## Project layout
 
-- try /redir to see how it is redirected to /kontakt
-- try /use-mirror to see how API call works
-- try /arithmetic to see a simple MVC + Latte + DB demo
-
-## App directory description
-
-| Directory | Description                                                                                       |
-| --------- | ------------------------------------------------------------------------------------------------- |
-| .github/  | Automations                                                                                       |
-| assets/   | Frontend assets. When dealing with numerous assets, categorize them into specific subdirectories. |
-| cache/    | Latte cache (deployed by [blast.sh](blast.sh))                                                    |
-| conf/     | All configuration files: Seablast app, PHPStan, phinx                                             |
-| log/      | All kind of logs                                                                                  |
-| src/      | Classes with respecitve subfolders src/Data, src/Exceptions, src/Models...                        |
-| views/    | Latte templates                                                                                   |
+| Directory  | Description                                                             |
+| ---------- | ----------------------------------------------------------------------- |
+| `.github/` | Automations and linting configuration                                   |
+| `assets/`  | Frontend assets placeholder; split into subdirectories as the app grows |
+| `cache/`   | Latte cache and other runtime cache                                     |
+| `conf/`    | Seablast app config, local config templates, Phinx, PHPStan, migrations |
+| `log/`     | Runtime logs                                                            |
+| `src/`     | Application classes, especially `src/Models/`                           |
+| `tests/`   | PHPUnit scaffold; currently almost empty                                |
+| `views/`   | App Latte templates                                                     |

@@ -19,6 +19,45 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### `Security` in case of vulnerabilities
 
+<!-- SCAFFOLDIFY:REMOVE-START dist-demo -->
+
+## [0.1.6] - 2026-10-17
+
+feat: scaffoldify cleanup workflow and standardized dist-demo markers
+
+### Added
+
+- add `scaffoldify.php` PHP CLI cleanup tool for turning the distribution into a starting app skeleton, add scaffold cleanup guidance into `README.md
+  - standardize removable shared-file blocks on `SCAFFOLDIFY:REMOVE-START` / `SCAFFOLDIFY:REMOVE-END` - both with suffix `dist-demo`
+  - the scaffold replacement defaults to match the real repository, package, namespace, and author identity
+- persist confirmed scaffoldify replacement values locally so later dry-runs and real runs offer them as defaults
+- remove demo Composer dependencies during scaffold cleanup, preview removals in dry-runs, validate manifests before cleanup, and report the Composer synchronization command
+
+### Changed
+
+- bump blast.sh to 0.2.19
+- bump tools used in polish-the-code.yml
+- Clarify app architecture requirements in `AGENTS.md`, including framework routing, model interfaces, vendor access, and the template mapping exception.
+- Add explicit localhost debug and maintenance-bypass configuration with proxy safety guidance.
+
+### Changed
+
+- Clarify that interactive scaffoldify dry-runs save replacement defaults and document the no-write preview command.
+
+### Fixed
+
+- ignore the PHPCS side-effects sniff in `scaffoldify.php` because the file is an intentional CLI entrypoint
+- ignore the PHPCS missing-namespace and one-class-per-file sniffs in `scaffoldify.php` because the file is an intentional single-file command-line tool
+- tighten `scaffoldify.php` PHPDoc types, remove a redundant replace-map assertion, and normalize binary-file reads so PHPStan 1.x and 2.x both validate the CLI code without false positives
+- replace escaped Composer namespace prefixes from the configured PHP namespace during scaffold cleanup
+
+### Security
+
+- guard `scaffoldify.php` delete targets so configured removals cannot escape `--root`
+- Temporarily allow `GHSA-vjqc-q4mp-2rvf` / `CVE-2026-79752` for `cakephp/database` to retain PHP 7.3 compatibility.
+  - The vulnerability affects several `FunctionsBuilder` methods when user-controlled values are passed to SQL function parameters.
+  - This exception should be removed once CakePHP provides a patched release compatible with PHP 7.3, or when PHP is upgraded to a version supported by the currently patched CakePHP releases.
+
 ## [0.1.5] - 2026-02-22
 
 feat: arithmetic trainer demo (model, Latte view, and persistence)
@@ -92,16 +131,31 @@ chore: GitHub Actions chaining
 
 - security: - Check: CKV2_GHA_1: "Ensure top-level permissions are not set to write-all" content read/write
 
+<!-- SCAFFOLDIFY:REMOVE-END dist-demo -->
+
 ## [0.1] - 2023-12-30
+
+feat: new application based on Seablast for PHP
+
+<!-- SCAFFOLDIFY:REMOVE-START dist-demo -->
 
 - new application based on Seablast for PHP/0.2.4
 - demonstrate API
 - demonstrate redirection
 
-[Unreleased]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.5...HEAD?w=1
+<!-- SCAFFOLDIFY:REMOVE-END dist-demo -->
+
+[Unreleased]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.6...HEAD?w=1
+
+<!-- SCAFFOLDIFY:REMOVE-START dist-demo -->
+
+[0.1.6]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.5...v0.1.6?w=1
 [0.1.5]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.4...v0.1.5?w=1
 [0.1.4]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.3...v0.1.4?w=1
 [0.1.3]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.2...v0.1.3?w=1
 [0.1.2]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1.1...v0.1.2?w=1
 [0.1.1]: https://github.com/WorkOfStan/seablast-dist/compare/v0.1...v0.1.1?w=1
+
+<!-- SCAFFOLDIFY:REMOVE-END dist-demo -->
+
 [0.1]: https://github.com/WorkOfStan/seablast-dist/releases/tag/v0.1
