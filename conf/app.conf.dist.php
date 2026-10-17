@@ -17,14 +17,18 @@ use Seablast\Seablast\SeablastConstant;
 
 return static function (SeablastConfiguration $SBConfig): void {
     $SBConfig->flag
-        //->deactivate(SeablastConstant::FLAG_WEB_RUNNING) // doesn't affect localhost
+        //->deactivate(SeablastConstant::FLAG_WEB_RUNNING) // DEBUG_IP_LIST clients bypass maintenance
         //->activate(SeablastConstant::FLAG_DEBUG_JSON) // JSON would be displayed directly with Tracy
         ->activate(SeablastConstant::ADMIN_MAIL_ENABLED) // live on server
         ->activate(SeablastConstant::USER_MAIL_ENABLED)  // live on server
         //->deactivate(I18nConstant::FLAG_SHOW_LANGUAGE_SELECTOR)
         ;
     $SBConfig
+        // Enable Tracy and maintenance bypass for direct local development only.
+        // Behind a shared proxy, configure SB_TRUSTED_PROXIES and allow actual developer client IPs instead.
         ->setArrayString(SeablastConstant::DEBUG_IP_LIST, [
+            //'127.0.0.1', // localhost IPv4
+            //'::1', // localhost IPv6
             //'9.9.9.9', // dev office
         ])
         //->setString(SeablastConstant::ADMIN_MAIL_ADDRESS, 'admin@test.xy') // fill-in your admin email

@@ -38,6 +38,7 @@ feat: scaffoldify cleanup workflow and standardized dist-demo markers
 - bump blast.sh to 0.2.18
 - bump tools used in polish-the-code.yml
 - Clarify app architecture requirements in `AGENTS.md`, including framework routing, model interfaces, vendor access, and the template mapping exception.
+- Add explicit localhost debug and maintenance-bypass configuration with proxy safety guidance.
 
 ### Changed
 

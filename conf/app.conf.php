@@ -15,6 +15,7 @@ return static function (SeablastConfiguration $SBConfig): void {
         ->activate(SeablastConstant::FLAG_WEB_RUNNING)
     ;
     $SBConfig
+        // Force update of external CSS and JavaScript files. The literal is expected in Latte.
         ->setInt(SeablastConstant::SB_WEB_FORCE_ASSET_VERSION, 1)
         ->setArrayArrayString(
             SeablastConstant::APP_MAPPING,
