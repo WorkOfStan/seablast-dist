@@ -19,9 +19,13 @@ Seablast boilerplate with a few removable demo routes.
 
 1. Create a development database and a separate testing database.
    Use collation `utf8_general_ci` or preferably `utf8mb3_general_ci`.
+
 <!-- SCAFFOLDIFY:REMOVE-START dist-demo -->
+
 2. Rename the distribution namespace and package metadata to your own app. (See `Scaffold cleanup` below.)
+
 <!-- SCAFFOLDIFY:REMOVE-END dist-demo -->
+
 3. Run [./blast.sh](./blast.sh) or
    [./vendor/seablast/seablast/blast.sh](https://github.com/WorkOfStan/seablast/blob/v0.2.18/blast.sh).
 4. On first two runs, the script creates:
